@@ -1,0 +1,4 @@
+# Fetch a i18n block
+fragment i18nBlock on BlockI18N {
+	# Fields go here
+}
