@@ -19,11 +19,11 @@ export default {
 
 		// Example settings for this package
 		i18n: {
-			currentCode: 'en-US',
+			currentCode: 'en',
 			locales: [
 				{
 					name: 'English',
-					code: 'en-US',
+					code: 'en',
 					domain: 'cloak-i18n.netlify.app'
 				},
 				{

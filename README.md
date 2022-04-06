@@ -32,6 +32,18 @@ Localization conventions for Cloak + Craft.
     ```
   - `craft.categories` - An array of category titles from [Translations Admin](https://plugins.craftcms.com/translations-admin).  If undefined, it's treated as `["site"]` by Translations Admin.
 
+## Usage
+
+### Static Strings
+
+This package uses [@nuxtjs/i18n](https://i18n.nuxtjs.org) which, itself, consumes [`vue-i18n`](https://kazupon.github.io/vue-i18n). Thus, look to their docs for a deeper explanantion for how to translate text.
+
+The most common helper you'll use is [`$t()`](https://kazupon.github.io/vue-i18n/api/#vue-injected-methods).  For example:
+
+```vue
+<button>{{ $t('articles.read_me') }}</button>
+```
+
 ## Components
 
 ### `<cloak-i18n-locale-selector />`

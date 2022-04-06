@@ -15,4 +15,12 @@ This locale switcher component comes with the package.
 
 ## Using Translations
 
-$t("dude")
+This component uses `$t()` to resolve the button text using static string translation via [`@nuxtjs/i18n`](https://i18n.nuxtjs.org).
+
+<translations-demo></translations-demo>
+
+```vue
+<button class="translations-demo">
+  {{ $t('articles.read') }}
+</button>
+```
