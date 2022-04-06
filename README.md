@@ -44,7 +44,7 @@ The most common helper you'll use is [`$t()`](https://kazupon.github.io/vue-i18n
 <button>{{ $t('articles.read_me') }}</button>
 ```
 
-## Components
+### Components
 
 `<cloak-i18n-locale-selector />`
 
