@@ -1,0 +1,21 @@
+{
+	"data": {
+		"messages": [
+			{
+				"key": "read",
+				"message": "Lire",
+				"category": "Articles"
+			},
+			{
+				"key": "listen",
+				"message": "Ecoutez",
+				"category": "Articles"
+			},
+			{
+				"key": "video",
+				"message": "Vidéo",
+				"category": "Articles"
+			}
+		]
+	}
+}

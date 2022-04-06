@@ -19,7 +19,11 @@ export default {
 
 		// Example settings for this package
 		i18n: {
-			currentCode: 'en',
+
+			// Default to French for demo
+			currentCode: 'fr',
+
+			// Testing with English and French
 			locales: [
 				{
 					name: 'English',
@@ -32,12 +36,25 @@ export default {
 					domain: 'cloak-i18n-fr.netlify.app'
 				},
 			],
+
+			// The mocked data uses the "Articles" category
 			craft: {
 				categories: [
 					'Articles'
 				]
 			}
 		}
+	},
+
+	// Load plugin that mocks Craft data and inject it right after the
+	// @cloak-app/craft plugin. This was necessary to ensure that we're mocking
+	// before the fetch-translations.coffee.
+	extendPlugins(plugins) {
+		const craftPluginIndex = plugins.findIndex(
+			plugin => plugin.src.includes('plugins.craft')
+		)
+		plugins.splice(craftPluginIndex + 1, 0, '~/plugins/mock-craft')
+		return plugins
 	},
 
 	// @nuxt/content can't be loaded from module
