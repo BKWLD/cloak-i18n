@@ -4,9 +4,9 @@ Fetch static translations from Craft for nuxt/i18n
 # import { execute } from 'library/services/craft'
 # import snakeCase from 'lodash/snakeCase'
 # import getTranslations from 'library/queries/craft/static-translations.gql'
-export default ({ i18n }, localeCode) ->
+export default ({ i18n, $axios }, localeCode) ->
 
-	console.log('file', localeCode)
+	console.log('file', $axios)
 
 	# # Get the iso for the selected locale
 	# locale = i18n.locales.find ({ code }) -> code == localeCode

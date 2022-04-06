@@ -1,8 +1,8 @@
 # [@cloak-app/i18n](https://github.com/BKWLD/cloak-i18n)
 
-## Description of a feature
+## Locale Switcher
 
-Additional details of the feature
+This locale switcher component comes with the package.
 
 <cloak-i18n-locale-selector>
 </cloak-i18n-locale-selector>
@@ -12,3 +12,7 @@ Additional details of the feature
 <cloak-i18n-locale-selector>
 </cloak-i18n-locale-selector>
 ```
+
+## Using Translations
+
+$t("dude")

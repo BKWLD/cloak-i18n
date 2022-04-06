@@ -3,9 +3,9 @@ export default {
 
 	// Load boilerplate and this package's module
 	buildModules: [
+		'../nuxt',
 		'@cloak-app/boilerplate/nuxt',
 		'@cloak-app/demo-theme/nuxt',
-		'../nuxt',
 	],
 
 	// Cloak settings

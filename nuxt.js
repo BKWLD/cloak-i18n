@@ -25,20 +25,8 @@ export default function() {
 		}],
 	}}})
 
-	// Get the current locale and throw an error if it coudln't be matched
-	const { currentCode, locales } = this.options.cloak.i18n;
-	// 	currentLocale = this.options.cloak.i18n.locales.find(locale => {
-	// 	return locale.code == currentCode
-	// })
-	// if (!currentLocale) throw `Unexpected locale: ${currentCode}`
-
-	// // Relay package options to runtime config
-	// defaultsDeep(this.options.publicRuntimeConfig, { cloak: { i18n: {
-	// 	...this.options.cloak.i18n,
-	// 	currentLocale,
-	// }}})
-
 	// Configure @nuxtjs/i18n
+	const { currentCode, locales } = this.options.cloak.i18n
 	defaultsDeep(this.options, { i18n: {
 
 		// Support domain based locales
@@ -60,12 +48,16 @@ export default function() {
 		// Massage @cloak-app/i18n locales into the format expected by @nuxtjs/i18n
 		locales: locales.map(locale => defaultsDeep(locale, {
 			iso: locale.code,
-			file: join(__dirname, 'build/static-translations.coffee'),
+			file: join(__dirname, 'services/fetch-craft-translations.coffee'),
 		}))
 	}})
 
 	// Add the @nuxtjs/i18n module
 	this.requireModule('@nuxtjs/i18n')
+
+	this.nuxt.hook('modules:done', (moduleContainer, options) => {
+		console.log('modules:done')
+	})
 }
 
 // Required for published modules

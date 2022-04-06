@@ -14,7 +14,13 @@ Localization conventions for Cloak + Craft.  This assumes that there is a unique
 ## Install
 
 1. Install with `yarn add @cloak-app/i18n`
-2. Add to `nuxt.config` with `buildModules: ['@cloak-app/i18n/nuxt']`
+2. Add to `nuxt.config` *before* `@cloak-app/boilerplate` (because @nuxtjs/axios [has to](https://i18n.nuxtjs.org/lazy-load-translations/) be added *after*)
+  ```js
+  buildModules: [
+    '@cloak-app/i18n/nuxt',
+    '@cloak-app/boilerplate/nuxt',
+  ]
+  ```
 
 ### Module Options
 
