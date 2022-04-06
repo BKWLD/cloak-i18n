@@ -36,9 +36,7 @@ Localization conventions for Cloak + Craft.
 
 ### Static Strings
 
-This package uses [@nuxtjs/i18n](https://i18n.nuxtjs.org) which, itself, consumes [`vue-i18n`](https://kazupon.github.io/vue-i18n). Thus, look to their docs for a deeper explanantion for how to translate text.
-
-The most common helper you'll use is [`$t()`](https://kazupon.github.io/vue-i18n/api/#vue-injected-methods).  For example:
+This package uses [@nuxtjs/i18n](https://i18n.nuxtjs.org) which, itself, consumes [`vue-i18n`](https://kazupon.github.io/vue-i18n). Thus, look to their docs for a deeper explanantion for how to translate text. The most common helper you'll use is [`$t()`](https://kazupon.github.io/vue-i18n/api/#vue-injected-methods).  For example:
 
 ```vue
 <button>{{ $t('articles.read_me') }}</button>
