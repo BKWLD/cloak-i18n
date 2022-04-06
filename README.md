@@ -46,7 +46,7 @@ The most common helper you'll use is [`$t()`](https://kazupon.github.io/vue-i18n
 
 ## Components
 
-### `<cloak-i18n-locale-selector />`
+`<cloak-i18n-locale-selector />`
 
 Renders a select-style menu for choosing a locale.
 
