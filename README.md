@@ -18,7 +18,7 @@ Localization conventions for Cloak + Craft.
 - This package expects that there is a unique Netlify Site for every locale.  In other words, when you switch locales, you are switching domains.
 - If using Craft, you're expected to use the [Translations Admin](https://plugins.craftcms.com/translations-admin) plugin fror static translations.
 
-### Module Options
+### Options
 
 - `cloak.i18n:`
   - `currentCode` - The `code` code (see the `locales` object) of the **current** locale.  Defaults to `process.env.LOCALE_CODE` and then `process.env.CMS_SITE` (which gets auto kebab-cased).  See the [@nuxtjs/i18n `defaultLocale` option](https://i18n.nuxtjs.org/options-reference/#defaultlocale).
