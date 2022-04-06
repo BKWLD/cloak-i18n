@@ -2,34 +2,23 @@
 
 <template lang='pug'>
 
-section.i18n-block(:class='classes') Heya world
+ul.locale-selector
+	li(v-for='locale in $i18n.locales' :key='locale.code')
+		a(:href='switchLocalePath(locale.code)') {{ locale.name }}
 
 </template>
 
 <!-- ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
 <script lang='coffee'>
-export default
-
-	props:
-
-		# The max-width class
-		maxWidthClass:
-			type: String
-			default: -> @$config.cloak?.i18N?.blockMaxWidthClass || ''
-
-	computed:
-
-		# Root classes
-		classes: -> @maxWidthClass
-
+export default {}
 </script>
 
 <!-- ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
 <style lang='stylus' scoped>
 
-.example-block
+.locale-selector
 	border 1px dashed currentColor
 	padding 1em
 	margin-v 1em

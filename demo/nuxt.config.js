@@ -17,8 +17,19 @@ export default {
 		},
 
 		// Example settings for this package
-		i18N: {
-			blockMaxWidthClass: 'max-w',
+		i18n: {
+			locales: [
+				{
+					name: 'English',
+					code: 'en',
+					domain: 'cloak-i18n.netlify.app'
+				},
+				{
+					name: 'French',
+					code: 'fr',
+					domain: 'cloak-i18n-fr.netlify.app'
+				},
+			]
 		}
 	},
 

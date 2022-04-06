@@ -4,9 +4,11 @@
 
 Additional details of the feature
 
-<cloak-i18n-block></cloak-i18n-block>
+<cloak-i18n-locale-selector>
+</cloak-i18n-locale-selector>
 
 
 ```vue
-<cloak-i18n-block></cloak-i18n-block>
+<cloak-i18n-locale-selector>
+</cloak-i18n-locale-selector>
 ```

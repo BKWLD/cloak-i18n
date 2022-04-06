@@ -1,4 +1,0 @@
-# Fetch a i18n block
-fragment i18nBlock on blocks_i18n_BlockType {
-	# Fields go here
-}

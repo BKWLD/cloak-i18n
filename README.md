@@ -1,6 +1,6 @@
 # @cloak-app/i18n
 
-Localization conventions for Cloak + Craft.
+Localization conventions for Cloak + Craft.  This assumes that there is a unique site (aka Netlify app) per locale.
 
 - [View demo](https://cloak-i18n.netlify.app)
 - [Edit CodeSandbox](https://githubbox.com/BKWLD/cloak-i18n)
@@ -8,7 +8,7 @@ Localization conventions for Cloak + Craft.
 ## Usage
 
 ```vue
-<cloak-i18n />
+<locale-selector />
 ```
 
 ## Install
@@ -16,23 +16,24 @@ Localization conventions for Cloak + Craft.
 1. Install with `yarn add @cloak-app/i18n`
 2. Add to `nuxt.config` with `buildModules: ['@cloak-app/i18n/nuxt']`
 
-### Project Dependencies
-
-- `.max-w*` styles (included in Cloak via `whitespace.styl`)
-
 ### Module Options
 
 - `cloak.i18n:`
-  - `maxWidthClass` - The default max-width class to use for the block.
+  - `currentCode` - The `code` code (see the `locales` object) of the **current** locale.  Defaults to `process.env.CMS_SITE`.  See the [@nuxtjs/i18n `defaultLocale` option](https://i18n.nuxtjs.org/options-reference/#defaultlocale).
+  - `locales` - An array of objects for defining the list of supported locales. This array is similar to the [@nuxtjs/i18n `locales` option](https://i18n.nuxtjs.org/options-reference/#locales). The objects look like:
+    ```js
+    {
+      name: 'English',
+      code: 'en', // Should be an ISO code
+      domain: 'cloak-i18n.netlify.app'
+    }
+    ```
 
 ## Components
 
-### `cloak-i18n-block`
+### `locale-selector`
 
-Renders a Block to be used within a Tower.
-
-- props:
-  - `maxWidthClass` - A `max-w-*` class to apply to the block
+Renders a select-style menu for choosing a locale.
 
 ## Contributing
 

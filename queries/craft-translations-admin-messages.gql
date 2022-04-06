@@ -1,0 +1,13 @@
+# Fetch the translations for the locale (specified by iso)
+query(
+	$iso: [String]="en-US"
+	$categories: [String]="site") {
+	messages: staticMessages(
+		language: $iso
+		category: $categories
+	) {
+		key
+		message
+		category
+	}
+}
