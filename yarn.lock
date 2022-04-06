@@ -939,14 +939,14 @@
   dependencies:
     coffeescript "^2.5.1"
 
-"@cloak-app/boilerplate@^1.0.0":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@cloak-app/boilerplate/-/boilerplate-1.0.3.tgz#987a62a6d7271ed9d1132abda4e08c02ff5fd11e"
-  integrity sha512-9tXryLUESm3w3q2+JLCmuENqrVfIXU7LpipdARrkAkYBTDhQEz7Vxvq+3+TH0tQOiwvFCpAH4fQ8qjm0s3E1Og==
+"@cloak-app/boilerplate@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@cloak-app/boilerplate/-/boilerplate-1.0.4.tgz#b539c554c7a82c76efa1b177b5f1efe1c027e0e7"
+  integrity sha512-CRR2YPnHOwSgzVEx7eD2RIs++Pz28AvFwEYE2fNogpTVwup3y/yMdUJemtivdNaxVJY27ZW738jnf4wggGcgDA==
   dependencies:
     "@bkwld/credits" "^0.3.0"
-    "@nuxt/utils" "^2.15.8"
-    "@nuxtjs/axios" "^5"
+    "@nuxt/utils" "^2.15.0"
+    "@nuxtjs/axios" "^5.0.0"
     "@nuxtjs/gtm" "^2.0.0"
     "@nuxtjs/pwa" "^3.0.0"
     "@nuxtjs/robots" "^2.0.0"
@@ -969,6 +969,14 @@
     stylus-loader "^3.0.0"
     vue-routing-anchor-parser "^1.13.1"
     webpack-graphql-loader gpoitch/graphql-loader#gp/refresh
+
+"@cloak-app/craft@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@cloak-app/craft/-/craft-0.1.0.tgz#2b1a025472b7f076b1c82183a06abf8c18d129bd"
+  integrity sha512-VioSknMgkMytrCL+q4VSj1df0ioHz8qsOlS3LlcaCjvpfPw0yiwM6tXoLs2YXoNd5tF/W3jcABFTHcsxZOXNig==
+  dependencies:
+    "@nuxtjs/axios" "^5.0.0"
+    lodash "^4.0.0"
 
 "@cloak-app/demo-theme@^1.0.1":
   version "1.0.3"
@@ -1362,7 +1370,7 @@
     "@types/webpack-hot-middleware" "2.25.4"
     sass-loader "10.1.1"
 
-"@nuxt/utils@2.15.8", "@nuxt/utils@^2.15.8":
+"@nuxt/utils@2.15.8", "@nuxt/utils@^2.15.0":
   version "2.15.8"
   resolved "https://registry.yarnpkg.com/@nuxt/utils/-/utils-2.15.8.tgz#0c3594f01be63ab521583904cafd32215b719d4c"
   integrity sha512-e0VBarUbPiQ4ZO1T58puoFIuXme7L5gk1QfwyxOONlp2ryE7aRyZ8X/mryuOiIeyP64c4nwSUtN7q9EUWRb7Lg==
@@ -1464,7 +1472,7 @@
     webpack-node-externals "^3.0.0"
     webpackbar "^4.0.0"
 
-"@nuxtjs/axios@^5":
+"@nuxtjs/axios@^5.0.0":
   version "5.13.6"
   resolved "https://registry.yarnpkg.com/@nuxtjs/axios/-/axios-5.13.6.tgz#6f4bbd98a3a7799a5d2c0726c6ad2a98aa111881"
   integrity sha512-XS+pOE0xsDODs1zAIbo95A0LKlilvJi8YW0NoXYuq3/jjxGgWDxizZ6Yx0AIIjZOoGsXJOPc0/BcnSEUQ2mFBA==
@@ -6124,7 +6132,7 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-lodash@^4, lodash@^4.0.0, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.3, lodash@^4.17.5:
+lodash@^4.0.0, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.3, lodash@^4.17.5:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
@@ -6971,7 +6979,7 @@ nuxt-spa-store-init@^1.3.0:
   resolved "https://registry.yarnpkg.com/nuxt-spa-store-init/-/nuxt-spa-store-init-1.3.0.tgz#49bcb05b37da2a2576b0b4f6cb1cb26ee011eb4b"
   integrity sha512-AgEQ/J+IoPSUkLNvVNRXcd2FtceEnCKjed5ZHuikOLtJkqR78rKLl0Mxr7vHJ2Hpx+gMt1WVxUQ1bX6wJ9ihug==
 
-nuxt@^2.15.7:
+nuxt@^2.14.0:
   version "2.15.8"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-2.15.8.tgz#946cba46bdaaf0e3918aa27fd9ea0fed8ed303b0"
   integrity sha512-ceK3qLg/Baj7J8mK9bIxqw9AavrF+LXqwYEreBdY/a4Sj8YV4mIvhqea/6E7VTCNNGvKT2sJ/TTJjtfQ597lTA==

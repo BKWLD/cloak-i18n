@@ -16,9 +16,10 @@
 		"lodash": "^4.0.0"
 	},
 	"devDependencies": {
-		"@cloak-app/boilerplate": "^1.0.0",
+		"@cloak-app/boilerplate": "^1.0.4",
+		"@cloak-app/craft": "^0.1.0",
 		"@cloak-app/demo-theme": "^1.0.1",
 		"@nuxt/content": "^1.14.0",
-		"nuxt": "^2.15.7"
+		"nuxt": "^2.14.0"
 	}
 }

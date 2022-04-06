@@ -3,9 +3,10 @@ export default {
 
 	// Load boilerplate and this package's module
 	buildModules: [
-		'../nuxt',
 		'@cloak-app/boilerplate/nuxt',
 		'@cloak-app/demo-theme/nuxt',
+		'../nuxt',
+		'@cloak-app/craft/nuxt',
 	],
 
 	// Cloak settings
@@ -18,10 +19,11 @@ export default {
 
 		// Example settings for this package
 		i18n: {
+			currentCode: 'en-US',
 			locales: [
 				{
 					name: 'English',
-					code: 'en',
+					code: 'en-US',
 					domain: 'cloak-i18n.netlify.app'
 				},
 				{
@@ -29,7 +31,12 @@ export default {
 					code: 'fr',
 					domain: 'cloak-i18n-fr.netlify.app'
 				},
-			]
+			],
+			craft: {
+				categories: [
+					'Articles'
+				]
+			}
 		}
 	},
 

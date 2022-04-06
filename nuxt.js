@@ -1,5 +1,6 @@
 import { join } from 'path'
 import defaultsDeep from 'lodash/defaultsDeep'
+import kebabCase from 'lodash/kebabCase'
 export default function() {
 
 	// Have Nuxt transpile resources
@@ -15,15 +16,29 @@ export default function() {
 		})
 	})
 
+	// Use ENV to determine the default locale code.  If it's based on CMS_SITE,
+	// we switch to kebab case because Craft sites don't support dashes in
+	// handles but ISO codes use them.
+	const defaultLocaleCode = process.env.LOCALE_CODE ||
+		kebabCase(process.env.CMS_SITE) || 'en'
+
 	// Set default options
 	defaultsDeep(this.options, { cloak: { i18n: {
-		currentCode: process.env.CMS_SITE || 'en',
+		currentCode: defaultLocaleCode,
 		locales: [{
 			name: 'English',
-			code: 'en',
-			url: 'https://cloak-i18n.netlify.app',
+			code: defaultLocaleCode,
+			domain: process.env.URL,
+			craft: {
+				categories: undefined
+			},
 		}],
 	}}})
+
+	// Relay package options to runtime config
+	defaultsDeep(this.options.publicRuntimeConfig, {
+		cloak: { i18n: this.options.cloak.i18n }
+	})
 
 	// Configure @nuxtjs/i18n
 	const { currentCode, locales } = this.options.cloak.i18n
@@ -48,16 +63,12 @@ export default function() {
 		// Massage @cloak-app/i18n locales into the format expected by @nuxtjs/i18n
 		locales: locales.map(locale => defaultsDeep(locale, {
 			iso: locale.code,
-			file: join(__dirname, 'services/fetch-craft-translations.coffee'),
+			file: join(__dirname, 'plugins/fetch-translations.coffee'),
 		}))
 	}})
 
 	// Add the @nuxtjs/i18n module
 	this.requireModule('@nuxtjs/i18n')
-
-	this.nuxt.hook('modules:done', (moduleContainer, options) => {
-		console.log('modules:done')
-	})
 }
 
 // Required for published modules
