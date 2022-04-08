@@ -60,7 +60,7 @@ export default function() {
 
 		// Massage @cloak-app/i18n locales into the format expected by @nuxtjs/i18n
 		locales: locales.map(locale => defaultsDeep(locale, {
-			iso: locale.code,
+			iso: locale.iso || locale.code,
 			site: locale.site || snakeCase(locale.code), // Helper for Craft sites
 			file: join(__dirname, 'plugins/fetch-translations.coffee'),
 		}))
