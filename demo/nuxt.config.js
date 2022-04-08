@@ -3,10 +3,10 @@ export default {
 
 	// Load boilerplate and this package's module
 	buildModules: [
-		'@cloak-app/boilerplate/nuxt',
-		'@cloak-app/demo-theme/nuxt',
+		'@cloak-app/boilerplate',
+		'@cloak-app/demo-theme',
 		'../nuxt',
-		'@cloak-app/craft/nuxt',
+		'@cloak-app/craft',
 	],
 
 	// Cloak settings
