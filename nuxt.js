@@ -1,5 +1,6 @@
 import { join } from 'path'
 import defaultsDeep from 'lodash/defaultsDeep'
+import { requireOnce, setPublicDefaultOptions } from '@cloak-app/utils'
 import kebabCase from 'lodash/kebabCase'
 export default function() {
 
@@ -23,7 +24,7 @@ export default function() {
 		kebabCase(process.env.CMS_SITE) || 'en'
 
 	// Set default options
-	defaultsDeep(this.options, { cloak: { i18n: {
+	setPublicDefaultOptions(this, 'i18n', {
 		currentCode: defaultLocaleCode,
 		locales: [{
 			name: 'English',
@@ -33,12 +34,8 @@ export default function() {
 				categories: undefined
 			},
 		}],
-	}}})
-
-	// Relay package options to runtime config
-	defaultsDeep(this.options.publicRuntimeConfig, {
-		cloak: { i18n: this.options.cloak.i18n }
 	})
+
 
 	// Configure @nuxtjs/i18n
 	const { currentCode, locales } = this.options.cloak.i18n
@@ -68,7 +65,7 @@ export default function() {
 	}})
 
 	// Add the @nuxtjs/i18n module
-	this.requireModule('@nuxtjs/i18n')
+	requireOnce(this, '@nuxtjs/i18n')
 }
 
 // Required for published modules
