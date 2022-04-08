@@ -2,6 +2,7 @@ import { join } from 'path'
 import defaultsDeep from 'lodash/defaultsDeep'
 import { requireOnce, setPublicDefaultOptions } from '@cloak-app/utils'
 import kebabCase from 'lodash/kebabCase'
+import snakeCase from 'lodash/snakeCase'
 export default function() {
 
 	// Have Nuxt transpile resources
@@ -44,13 +45,13 @@ export default function() {
 		// Support domain based locales
 		differentDomains: true,
 		detectBrowserLanguage: false,
-		vuex: false,
+		strategy: 'no_prefix', // Prevents duplicate routes from being created
 
-		// This was throwing errors
-		parsePages: false,
+		// Conservative defaults
+		parsePages: false, // This was throwing errors
+		vuex: false, // Not really sure what this does
 
-		// Set the current locale based on the CMS_SITE env var.  Fallback to the
-		// en-US locale when one isn't provided.
+		// Set the current locale
 		lazy: true, // Only loads one locale
 		defaultLocale: currentCode,
 
@@ -60,6 +61,7 @@ export default function() {
 		// Massage @cloak-app/i18n locales into the format expected by @nuxtjs/i18n
 		locales: locales.map(locale => defaultsDeep(locale, {
 			iso: locale.code,
+			site: locale.site || snakeCase(locale.code), // Helper for Craft sites
 			file: join(__dirname, 'plugins/fetch-translations.coffee'),
 		}))
 	}})
