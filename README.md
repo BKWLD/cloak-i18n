@@ -8,9 +8,9 @@ Localization conventions for Cloak + Craft.
 ## Install
 
 1. Install with `yarn add @cloak-app/i18n`
-2. Add to `nuxt.config` with `buildModules: ['@cloak-app/i18n']`
+2. Add to `nuxt.config` with `modules: ['@cloak-app/i18n']`
 3. Install and configure a Cloak CMS package, like [`@cloak-app/craft`](https://github.com/BKWLD/cloak-craft).
-  - CMS packages **must** be added *after* the `@cloak-app/i18n` module in `buildModules` so that their injected clients are available to the [`fetch-translations.coffee`](./plugins/fetch-translations.coffee) plugin.
+  - CMS packages **must** be added *after* the `@cloak-app/i18n` module in `modules` so that their injected clients are available to the [`fetch-translations.coffee`](./plugins/fetch-translations.coffee) plugin.
   - Currently only `@cloak-app/craft` is supported
 
 ### Dependencies
