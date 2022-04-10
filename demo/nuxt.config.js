@@ -1,3 +1,5 @@
+import { addPluginAfter } from '@cloak-app/utils'
+
 // Nuxt config
 export default {
 
@@ -49,14 +51,8 @@ export default {
 		}
 	},
 
-	// Load plugin that mocks Craft data and inject it right after the
-	// @cloak-app/craft plugin. This was necessary to ensure that we're mocking
-	// before the fetch-translations.coffee.
+	// Load plugin that mocks Craft data
 	extendPlugins(plugins) {
-		const craftPluginIndex = plugins.findIndex(
-			plugin => plugin.src.includes('plugins.craft')
-		)
-		plugins.splice(craftPluginIndex + 1, 0, '~/plugins/mock-craft')
-		return plugins
-	},
+		return addPluginAfter(plugins, 'craft-client', '~/plugins/mock-craft')
+	}
 }
