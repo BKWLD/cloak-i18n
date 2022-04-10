@@ -9,6 +9,7 @@ export default {
 	modules: [
 		'../nuxt',
 		'@cloak-app/craft',
+		'@nuxt/content',
 	],
 
 	// Cloak settings
@@ -58,7 +59,4 @@ export default {
 		plugins.splice(craftPluginIndex + 1, 0, '~/plugins/mock-craft')
 		return plugins
 	},
-
-	// @nuxt/content can't be loaded from module
-	modules: ['@nuxt/content'],
 }
