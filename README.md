@@ -12,6 +12,8 @@ Localization conventions for Cloak + Craft.
 3. Install and configure a Cloak CMS package, like [`@cloak-app/craft`](https://github.com/BKWLD/cloak-craft).
   - CMS packages **must** be added *after* the `@cloak-app/i18n` module in `modules` so that their injected clients are available to the [`fetch-translations.coffee`](./plugins/fetch-translations.coffee) plugin.
   - Currently only `@cloak-app/craft` is supported
+4. Add `this.$nuxtI18nHead({ addSeoAttributes:true })` to your head, probably in your default layout, as described in [the @nuxtjs/i18n docs](https://i18n.nuxtjs.org/seo/#setup)
+  - Adding to the nuxt.config conflicts with [@nuxtjs/gtm](https://github.com/nuxt-community/gtm-module/issues/136)
 
 ### Dependencies
 

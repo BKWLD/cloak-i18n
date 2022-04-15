@@ -971,11 +971,12 @@
     vue-routing-anchor-parser "^1.13.1"
     webpack-graphql-loader gpoitch/graphql-loader#gp/refresh
 
-"@cloak-app/craft@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@cloak-app/craft/-/craft-0.1.1.tgz#0ff8ca08f726c0bb09cc600d21560b3557be4df7"
-  integrity sha512-4wRv7t/YqdEqKOTpqP/H7AGQIOxx5O4DdF7zNeUhxWu0+ptZKcqF8OuUHJ9xhf76FLalvjusfy1ZMcLBcgz3fg==
+"@cloak-app/craft@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@cloak-app/craft/-/craft-0.4.0.tgz#bd8c7816751f8f54fc63dee3b026102126705939"
+  integrity sha512-oVROq1ZNGtTe61s8T8MtUDMJ2GwlRxdwttT5J9T6IeG1XR8N6yMdKlVThjNV4MWk+lVw76ArdpOJH0axKiXN2w==
   dependencies:
+    "@cloak-app/utils" "^1.3.0"
     "@nuxtjs/axios" "^5.0.0"
     lodash "^4.0.0"
 
