@@ -61,7 +61,7 @@ export default function() {
 		locales: locales.map(locale => defaultsDeep(locale, {
 			iso: locale.iso || locale.code,
 			site: locale.site || snakeCase(locale.code), // Helper for Craft sites
-			file: join(__dirname, 'plugins/fetch-translations.coffee'),
+			file: join(__dirname, 'plugins/fetch-translations.js'),
 		}))
 	}})
 
