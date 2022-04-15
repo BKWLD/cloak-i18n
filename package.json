@@ -8,6 +8,7 @@
 	"main": "nuxt.js",
 	"scripts": {
 		"dev": "nuxt dev demo",
+		"dev:external": "cd demo/external && webpack --watch --progress -c webpack.config.coffee",
 		"build": "nuxt build demo",
 		"start": "nuxt start demo",
 		"generate": "nuxt generate demo --fail-on-error --target=static"
@@ -23,6 +24,7 @@
 		"@cloak-app/demo-theme": "^1.0.5",
 		"@nuxt/content": "^1.14.0",
 		"axios-mock-adapter": "^1.20.0",
-		"nuxt": "^2.14.0"
+		"nuxt": "^2.14.0",
+		"webpack-cli": "^4.9.2"
 	}
 }
