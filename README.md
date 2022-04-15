@@ -29,7 +29,7 @@ Localization conventions for Cloak + Craft.
     {
       name: 'English',
       code: 'en', // Should be an ISO code
-      domain: 'cloak-i18n.netlify.app'
+      domain: 'https://cloak-i18n.netlify.app'
     }
     ```
   - `craft.categories` - An array of category titles from [Translations Admin](https://plugins.craftcms.com/translations-admin).  If undefined, it's treated as `["site"]` by Translations Admin.
