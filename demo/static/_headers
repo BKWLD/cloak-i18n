@@ -5,5 +5,5 @@
 # Allow Netlify form submits from other domains
 /
 	Access-Control-Allow-Origin: *
-	Access-Control-Allow-Methods: POST
+	Access-Control-Allow-Methods: *
 	Access-Control-Allow-Headers: content-type
