@@ -77,11 +77,13 @@ function makeFallbackCode(locales) {
 }
 
 // If there is a slash in the code, assume the latter part is the country
-// code and return it.  This may return null
+// code and return it.  Otherwise, use the language code as country code
 function makeCountryCode(code) {
 	const match = code.match(/\-(\w+)$/)
 	if (match) return match[1].toLowerCase()
+	else return code
 }
+
 // If there is a slash in the code, assume the former part is the lanuage
 // code and return it.  Otherwise, if no slash, assume this is a code for a
 // lanaguage only (ie "fr") with no country part

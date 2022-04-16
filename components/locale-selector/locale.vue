@@ -1,28 +1,40 @@
-<!-- Renders a i18n block -->
+<!-- A locale in the local selector -->
 
 <template lang='pug'>
 
-ul.locale-selector
-	li(v-for='locale in $i18n.locales' :key='locale.code')
-		a(:href='switchLocalePath(locale.code)')
-			| {{ locale.countryCode ? $t(`locale_selector.countries.${locale.countryCode}`) : '' }}
-			| {{ $t(`locale_selector.languages.${locale.languageCode}`) }}
+.locale-selector-locale
+
+	//- Flag icon
+
+	//- Country name
+	.county {{ locale.country }}
+
+	//- Optional language selector
+	ul.languages(v-if='languages.length > 1')
+		li.language(
+			v-for='languageLocale in languages'
+			:key='languageLocale.languageCode')
+			a(:href='switchLocalePath(locale.code)')
 
 </template>
 
 <!-- ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
 <script lang='coffee'>
-export default {}
+export default
+
+	props:
+		locale: Object
+		languages:
+			type: Array
+			default: -> []
+
 </script>
 
 <!-- ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
 <style lang='stylus' scoped>
 
-.locale-selector
-	border 1px dashed currentColor
-	padding 1em
-	margin-v 1em
+
 
 </style>
