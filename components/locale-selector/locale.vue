@@ -5,17 +5,18 @@
 .locale
 
 	//- Flag icon
-	img.flag(:src='flag')
+	a(:href='url'): img.flag(:src='flag')
 
 	//- Country name
-	.county {{ locale.country }}
+	a.county(:href='url') {{ locale.country }}
 
 	//- Optional language selector
-	ul.languages(v-if='languages.length > 1')
-		li.language(
-			v-for='languageLocale in languages'
-			:key='languageLocale.languageCode')
-			a(:href='switchLocalePath(locale.code)')
+	.languages(v-if='languageLocales.length > 1')
+		a.language(
+			v-for='languageLocale in languageLocales'
+			:key='languageLocale.languageCode'
+			:href='switchLocalePath(languageLocale.code)')
+			| {{ languageLocale.languageCode }}
 
 </template>
 
@@ -26,7 +27,7 @@ export default
 
 	props:
 		locale: Object # The locale object
-		languages: # List of alternative language options for the locale
+		languageLocales: # List of alternative language options for the locale
 			type: Array
 			default: -> []
 
@@ -36,6 +37,11 @@ export default
 	created: ->
 		@flag = await import("flag-icons/flags/4x3/#{@locale.countryCode}.svg")
 		@flag = @flag.default if @flag.default
+
+	computed:
+
+		# The primary url for the locale
+		url: -> @switchLocalePath @locale.code
 
 </script>
 
@@ -49,5 +55,20 @@ export default
 .flag
 	height 1em
 	margin-right 0.5em
+
+.languages
+	flex-center()
+
+.language
+	font-size .75em
+	text-transform uppercase
+
+	// Seperate languages with bullets
+	&:before
+		content '•'
+		font-size .5em
+		margin-h .5em
+		display inline-block
+		vertical-align middle
 
 </style>

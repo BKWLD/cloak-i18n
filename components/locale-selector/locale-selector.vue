@@ -1,19 +1,18 @@
-<!-- Renders a i18n block -->
+<!-- Renders a select menu for choosing a locale -->
 
 <template lang='pug'>
 
-.locale-selector
+//- Wrap in dropdown component
+cloak-i18n-locale-selector-dropdown.locale-selector
 
 	//- The Button that opens the dropdown
-	button.current-locale
-		cloak-i18n-locale(:locale='locale')
+	template(#toggle): cloak-i18n-locale(:locale='locale')
 
-
-	//-
-		li(v-for='locale in $i18n.locales' :key='locale.code')
-			a(:href='switchLocalePath(locale.code)')
-				| {{ locale.countryCode ? $t(`locale_selector.countries.${locale.countryCode}`) : '' }}
-				| {{ $t(`locale_selector.languages.${locale.languageCode}`) }}
+	//- The the choices of locale
+	li(v-for='locales, countryCode of localesByCountry' :key='countryCode')
+		cloak-i18n-locale(
+			:locale='locales[0]'
+			:language-locales='locales')
 
 </template>
 
@@ -44,11 +43,6 @@ export default
 
 <style lang='stylus' scoped>
 
-.current-locale
-	border 1px solid currentColor
-	flex-center()
-	height 2em
-	padding-h 1em
-	border-radius 0.5em
+
 
 </style>
