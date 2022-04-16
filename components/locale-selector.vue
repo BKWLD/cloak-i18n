@@ -4,7 +4,8 @@
 
 ul.locale-selector
 	li(v-for='locale in $i18n.locales' :key='locale.code')
-		a(:href='switchLocalePath(locale.code)') {{ locale.name }}
+		a(:href='switchLocalePath(locale.code)')
+			| {{ $t(`locale_selector.languages.${locale.languageCode}`) }}
 
 </template>
 

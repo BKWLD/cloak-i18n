@@ -44,15 +44,42 @@ export default function() {
 		lazy: true, // Only loads one locale
 		defaultLocale: currentCode,
 
+		// Fallback to english by default
+		vueI18n: {
+			fallbackLocale: 'en',
+		},
+
 		// Configure where to load static strings from.
 		langDir: '~/',
 
 		// Massage @cloak-app/i18n locales into the format expected by @nuxtjs/i18n
 		locales: locales.map(locale => defaultsDeep(locale, {
 			iso: locale.iso || locale.code,
-			site: locale.site || snakeCase(locale.code), // Helper for Craft sites
 			file: join(__dirname, '../plugins/fetch-translations.js'),
+
+			// Make vars used by Craft (where the site handle is snake-cased)
+			site: locale.site || snakeCase(locale.code),
+
+			// Make vars used by locale selector
+			countryCode: locale.countryCode || makeCountryCode(locale.code),
+			languageCode: locale.languageCode ||  makeLanguageCode(locale.code),
 		}))
 	}})
 
 }
+
+// If there is a slash in the code, assume the latter part is the country
+// code and return it.  This may return null
+function makeCountryCode(code) {
+	const match = code.match(/\-(\w+)$/)
+	if (match) return match[1].toLowerCase()
+}
+// If there is a slash in the code, assume the former part is the lanuage
+// code and return it.  Otherwise, if no slash, assume this is a code for a
+// lanaguage only (ie "fr") with no country part
+function makeLanguageCode(code) {
+	const match = code.match(/^(\w+)\-/)
+	if (match) return match[1].toLowerCase()
+	else return code
+}
+

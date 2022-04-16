@@ -5,15 +5,8 @@ export default function() {
 	// Have Nuxt transpile resources
 	this.options.build.transpile.push('@cloak-app/i18n')
 
-	// Allow components to be auto-imported by Nuxt
-	this.nuxt.hook('components:dirs', dirs => {
-		dirs.push({
-			path: join(__dirname, './components'),
-			extensions: ['vue', 'js', 'coffee'],
-			prefix: 'cloak-i18n',
-			level: 2,
-		})
-	})
+	// Setup auto-importing and translation files for locale-selector
+	requireOnce(this, join(__dirname, 'modules/locale-selector'))
 
 	// Set default Nuxt options
 	requireOnce(this, join(__dirname, 'modules/default-options'))

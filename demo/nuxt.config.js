@@ -32,12 +32,10 @@ export default {
 			// Testing with English and French
 			locales: [
 				{
-					name: 'English',
 					code: 'en',
 					domain: 'https://cloak-i18n.netlify.app'
 				},
 				{
-					name: 'French',
 					code: 'fr',
 					domain: 'https://cloak-i18n-fr.netlify.app'
 				},

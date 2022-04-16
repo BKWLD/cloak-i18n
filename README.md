@@ -27,7 +27,6 @@ Localization conventions for Cloak + Craft.
   - `locales` - An array of objects for defining the list of supported locales. This array is similar to the [@nuxtjs/i18n `locales` option](https://i18n.nuxtjs.org/options-reference/#locales). The objects look like:
     ```js
     {
-      name: 'English',
       code: 'en', // Should be an ISO code
       domain: 'https://cloak-i18n.netlify.app'
     }
