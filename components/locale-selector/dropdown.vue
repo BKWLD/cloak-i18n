@@ -38,15 +38,16 @@ export default
 <!-- ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
 <style lang='stylus' scoped>
+@import './vars.styl'
 
 .toggle
 
 	// Make a button shape
 	button()
 	border 1px solid currentColor
-	height 2em
-	padding-h 1em
-	border-radius 0.5em
+	height cloak-i18n-locale-selector-toggle-height
+	padding-h cloak-i18n-locale-selector-toggle-padding-h
+	border-radius cloak-i18n-locale-selector-radius
 
 	// Expand to fill width
 	width 100%
@@ -78,7 +79,7 @@ export default
 
 	// Make a simple default background
 	background rgba(black, .75)
-	border-radius 0.5em
+	border-radius cloak-i18n-locale-selector-radius
 
 	// Animate it in
 	&.v-enter-active, &.v-leave-active

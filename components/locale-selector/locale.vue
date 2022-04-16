@@ -54,6 +54,7 @@ export default
 <!-- ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
 <style lang='stylus' scoped>
+@import './vars.styl'
 
 .locale
 	display flex

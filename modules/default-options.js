@@ -3,7 +3,6 @@ import defaultsDeep from 'lodash/defaultsDeep'
 import kebabCase from 'lodash/kebabCase'
 import snakeCase from 'lodash/snakeCase'
 import { setPublicDefaultOptions } from '@cloak-app/utils'
-import { match } from 'assert'
 
 /**
  * Set default options for this package and nuxt/i18n

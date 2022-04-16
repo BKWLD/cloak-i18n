@@ -63,6 +63,7 @@ export default
 <!-- ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
 <style lang='stylus' scoped>
+@import './vars.styl'
 
 // Collapse to minimum needed width
 .locale-selector
@@ -71,8 +72,9 @@ export default
 
 // The container of the locale menu options
 .locales
-	padding 0.5em 1em
+	padding-v cloak-i18n-locale-selector-options-padding-v
+	padding-h cloak-i18n-locale-selector-toggle-padding-h
 	> :not(:first-child)
-		margin-top 0.5em
+		margin-top cloak-i18n-locale-selector-options-padding-v
 
 </style>
