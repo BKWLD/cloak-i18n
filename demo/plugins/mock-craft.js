@@ -6,8 +6,8 @@ import { makeCraftClient } from '@cloak-app/craft/factories'
 
 // Get translated stubs
 import en from '../stubs/en.json'
+import es from '../stubs/es.json'
 import fr from '../stubs/fr.json'
-const stubs = { en, fr }
 
 // Nuxt plugin
 export default function ({ $craft }) {
@@ -32,8 +32,9 @@ export function addMocks(client) {
 		const payload = JSON.parse(config.data)
 
 		// Return a json stub based on request vars
-		if (payload.variables.iso == 'en') return [200, stubs.en]
-		else if (payload.variables.iso == 'fr') return [200, stubs.fr]
+		if (payload.variables.iso.match(/^en/)) return [200, en]
+		else if (payload.variables.iso.match(/^es/)) return [200, es]
+		else if (payload.variables.iso.match(/^fr/)) return [200, fr]
 
 		// A request didn't match expectations
 		throw 'Unexepcted request'

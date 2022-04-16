@@ -13,7 +13,7 @@ export default function() {
 	// we switch to kebab case because Craft sites don't support dashes in
 	// handles but ISO codes use them.
 	const defaultLocaleCode = process.env.LOCALE_CODE ||
-		kebabCase(process.env.CMS_SITE) || 'en'
+		kebabCase(process.env.CMS_SITE) || 'en-US'
 
 	// Set default options
 	setPublicDefaultOptions(this, 'i18n', {
@@ -35,6 +35,7 @@ export default function() {
 		// Support domain based locales
 		differentDomains: true,
 		detectBrowserLanguage: false,
+		strategy: 'no_prefix',
 
 		// Conservative defaults
 		parsePages: false, // This was throwing errors
@@ -44,15 +45,51 @@ export default function() {
 		lazy: true, // Only loads one locale
 		defaultLocale: currentCode,
 
+		// See https://kazupon.github.io/vue-i18n/api/#constructor-options
+		vueI18n: {
+			fallbackLocale: makeFallbackCode(locales), // Fallback to English
+			silentFallbackWarn: true, // Silence warnings about fallback
+		},
+
 		// Configure where to load static strings from.
 		langDir: '~/',
 
 		// Massage @cloak-app/i18n locales into the format expected by @nuxtjs/i18n
 		locales: locales.map(locale => defaultsDeep(locale, {
 			iso: locale.iso || locale.code,
-			site: locale.site || snakeCase(locale.code), // Helper for Craft sites
 			file: join(__dirname, '../plugins/fetch-translations.js'),
+
+			// Make vars used by Craft (where the site handle is snake-cased)
+			site: locale.site || snakeCase(locale.code),
+
+			// Make vars used by locale selector
+			countryCode: locale.countryCode || makeCountryCode(locale.code),
+			languageCode: locale.languageCode ||  makeLanguageCode(locale.code),
 		}))
 	}})
-
 }
+
+// Make the fallback locale by returning the first instance of "en" or
+// "en-US" since we don't know what site will use
+function makeFallbackCode(locales) {
+	const match = locales.find(({ code }) => ['en-US', 'en'].includes(code))
+	if (match) return match.code
+}
+
+// If there is a slash in the code, assume the latter part is the country
+// code and return it.  Otherwise, use the language code as country code
+function makeCountryCode(code) {
+	const match = code.match(/\-(\w+)$/)
+	if (match) return match[1].toLowerCase()
+	else return code
+}
+
+// If there is a slash in the code, assume the former part is the lanuage
+// code and return it.  Otherwise, if no slash, assume this is a code for a
+// lanaguage only (ie "fr") with no country part
+function makeLanguageCode(code) {
+	const match = code.match(/^(\w+)\-/)
+	if (match) return match[1].toLowerCase()
+	else return code
+}
+
