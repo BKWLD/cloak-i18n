@@ -1,4 +1,5 @@
 import { addPluginAfter } from '@cloak-app/utils'
+import { makeCraftMock } from './plugins/mock-craft'
 
 // Nuxt config
 export default {
@@ -42,6 +43,9 @@ export default {
 				},
 			],
 
+			// Create JSON fields for use in the external demo
+			generateJson: true,
+
 			// The mocked data uses the "Articles" category
 			craft: {
 				categories: [
@@ -51,7 +55,10 @@ export default {
 		}
 	},
 
-	// Load plugin that mocks Craft data
+	// Make a mock that is used in nuxt hooks of this module
+	craftMock: makeCraftMock(),
+
+	// Load plugin that mocks runtime crat data data
 	extendPlugins(plugins) {
 		return addPluginAfter(plugins, 'craft-client', '~/plugins/mock-craft')
 	}

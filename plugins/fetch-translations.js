@@ -19,7 +19,7 @@ export default async function({i18n, $craft, $config}, localeCode) {
 }
 
 // Query Craft for translation messages
-async function fetchCraftTranslations({$craft, locale, categories}) {
+export async function fetchCraftTranslations({$craft, locale, categories}) {
 
 	// Get translations for the locale from Craft
 	const response = await $craft.execute({
