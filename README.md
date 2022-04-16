@@ -32,6 +32,7 @@ Localization conventions for Cloak + Craft.
       domain: 'https://cloak-i18n.netlify.app'
     }
     ```
+  - `generateJson` - Boolean to enable static generation of JSON files for each locale's static strings.  You would enable this if you wanted to use the static strings outside of Nuxt, like as part of components that are used in a Shopify theme.  The JSON is written to `/static/i18n/{code}.json` where `{code}` comes from the `locales` array.
   - `craft.categories` - An array of category titles from [Translations Admin](https://plugins.craftcms.com/translations-admin).  If undefined, it's treated as `["site"]` by Translations Admin.
 
 ## Usage

@@ -24,3 +24,7 @@ This component uses `$t()` to resolve the button text using static string transl
   {{ $t('articles.read') }}
 </button>
 ```
+
+## Usage Outside of Nuxt
+
+[This demo](./external.html) shows how to consume static JSON rendered by this package with a manually bootstrapped instance of vue-i18n for usage outside of Nuxt.  Be sure to read the source of [app.coffee](https://github.com/BKWLD/cloak-i18n/blob/master/demo/external/app.coffee) which is used to generate the JS in that demo.

@@ -52,3 +52,6 @@ sw.*
 
 # Local Netlify folder
 .netlify
+
+# Compiled demo files
+/demo/static/external.js
