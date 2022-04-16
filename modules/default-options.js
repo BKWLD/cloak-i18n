@@ -36,6 +36,7 @@ export default function() {
 		// Support domain based locales
 		differentDomains: true,
 		detectBrowserLanguage: false,
+		strategy: 'no_prefix',
 
 		// Conservative defaults
 		parsePages: false, // This was throwing errors

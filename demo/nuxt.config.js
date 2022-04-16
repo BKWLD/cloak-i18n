@@ -27,7 +27,7 @@ export default {
 		i18n: {
 
 			// Default to English for demo
-			currentCode: 'en-US',
+			currentCode: 'es',
 
 			// Testing with English and French
 			locales: [

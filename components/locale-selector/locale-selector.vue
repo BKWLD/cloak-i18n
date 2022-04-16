@@ -3,13 +3,20 @@
 <template lang='pug'>
 
 //- Wrap in dropdown component
-cloak-i18n-locale-selector-dropdown.locale-selector
+cloak-i18n-locale-selector-dropdown.locale-selector(ref='dropdown')
 
 	//- The Button that opens the dropdown
-	template(#toggle): cloak-i18n-locale(:locale='locale')
+	template(#toggle)
+		cloak-i18n-locale(
+			:locale='locale'
+			@primary-locale-click='onPrimaryLocaleClick')
 
-	//- The the choices of locale
-	li(v-for='locales, countryCode of localesByCountry' :key='countryCode')
+	//- Make the list of locales
+	ul.locales: li(
+		v-for='locales, countryCode of otherLocalesByCountry'
+		:key='countryCode')
+
+		//- A locale option
 		cloak-i18n-locale(
 			:locale='locales[0]'
 			:language-locales='locales')
@@ -24,6 +31,9 @@ export default
 
 	computed:
 
+		# Get the current locale object
+		locale: -> @locales.find ({ code }) => code == @$i18n.locale
+
 		# Add extra info to localeslist
 		locales: -> @$i18n.locales.map (locale) => {
 			...locale
@@ -31,11 +41,22 @@ export default
 			language: @$t "locale_selector.languages.#{locale.languageCode}"
 		}
 
-		# Group the locales list by country
-		localesByCountry: -> groupBy @locales, 'countryCode'
+		# Get locales besides that for the current country
+		otherLocales: -> @locales.filter (locale) =>
+			locale.countryCode != @locale.countryCode
 
-		# Get the current locale object
-		locale: -> @locales.find ({ code }) => code == @$i18n.locale
+		# Group the locales list by country, ignoring current locale
+		otherLocalesByCountry: -> groupBy @otherLocales, 'countryCode'
+
+	methods:
+
+		# When there is a click on the primary locale of the current locale, treat
+		# this like someone trying to open the dropdown.
+		onPrimaryLocaleClick: (event) ->
+			console.log 'onPrimaryLocaleClick'
+			event.preventDefault()
+			event.stopPropagation()
+			@$refs.dropdown.toggle()
 
 </script>
 
@@ -43,6 +64,15 @@ export default
 
 <style lang='stylus' scoped>
 
+// Collapse to minimum needed width
+.locale-selector
+	position relative
+	display inline-block
 
+// The container of the locale menu options
+.locales
+	padding 0.5em 1em
+	> :not(:first-child)
+		margin-top 0.5em
 
 </style>
