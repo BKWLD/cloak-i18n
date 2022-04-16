@@ -26,18 +26,26 @@ export default {
 		// Example settings for this package
 		i18n: {
 
-			// Default to French for demo
-			currentCode: 'fr',
+			// Default to English for demo
+			currentCode: 'en-US',
 
 			// Testing with English and French
 			locales: [
 				{
-					code: 'en',
+					code: 'en-US',
 					domain: 'https://cloak-i18n.netlify.app'
 				},
 				{
-					code: 'fr',
-					domain: 'https://cloak-i18n-fr.netlify.app'
+					code: 'en-CA',
+					domain: 'https://cloak-i18n-en-ca.netlify.app'
+				},
+				{
+					code: 'fr-CA',
+					domain: 'https://cloak-i18n-fr-ca.netlify.app'
+				},
+				{
+					code: 'es',
+					domain: 'https://cloak-i18n-es.netlify.app'
 				},
 			],
 

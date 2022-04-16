@@ -3,6 +3,7 @@ import defaultsDeep from 'lodash/defaultsDeep'
 import kebabCase from 'lodash/kebabCase'
 import snakeCase from 'lodash/snakeCase'
 import { setPublicDefaultOptions } from '@cloak-app/utils'
+import { match } from 'assert'
 
 /**
  * Set default options for this package and nuxt/i18n
@@ -44,9 +45,10 @@ export default function() {
 		lazy: true, // Only loads one locale
 		defaultLocale: currentCode,
 
-		// Fallback to english by default
+		// See https://kazupon.github.io/vue-i18n/api/#constructor-options
 		vueI18n: {
-			fallbackLocale: 'en',
+			fallbackLocale: makeFallbackCode(locales), // Fallback to English
+			silentFallbackWarn: true, // Silence warnings about fallback
 		},
 
 		// Configure where to load static strings from.
@@ -65,7 +67,13 @@ export default function() {
 			languageCode: locale.languageCode ||  makeLanguageCode(locale.code),
 		}))
 	}})
+}
 
+// Make the fallback locale by returning the first instance of "en" or
+// "en-US" since we don't know what site will use
+function makeFallbackCode(locales) {
+	const match = locales.find(({ code }) => ['en-US', 'en'].includes(code))
+	if (match) return match.code
 }
 
 // If there is a slash in the code, assume the latter part is the country

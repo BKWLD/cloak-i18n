@@ -1,14 +1,14 @@
 export default {
 	locale_selector: {
 		countries: {
-			ca: 'Canada',
-			es: 'Espagne',
-			us: 'États-Unis',
+			ca: 'Canadá',
+			es: 'España',
+			us: 'Estados Unidos',
 		},
 		languages: {
-			en: 'Anglais',
+			en: 'Inglés',
 			es: 'Español',
-			fr: 'Espagnol',
+			fr: 'Francés',
 		}
 	}
 }

@@ -32,8 +32,8 @@ export function addMocks(client) {
 		const payload = JSON.parse(config.data)
 
 		// Return a json stub based on request vars
-		if (payload.variables.iso == 'en') return [200, stubs.en]
-		else if (payload.variables.iso == 'fr') return [200, stubs.fr]
+		if (payload.variables.iso.match(/^en/)) return [200, stubs.en]
+		else if (payload.variables.iso.match(/^fr/)) return [200, stubs.fr]
 
 		// A request didn't match expectations
 		throw 'Unexepcted request'

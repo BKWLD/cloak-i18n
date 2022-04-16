@@ -5,11 +5,11 @@ export default function() {
 	// Have Nuxt transpile resources
 	this.options.build.transpile.push('@cloak-app/i18n')
 
-	// Setup auto-importing and translation files for locale-selector
-	requireOnce(this, join(__dirname, 'modules/locale-selector'))
-
 	// Set default Nuxt options
 	requireOnce(this, join(__dirname, 'modules/default-options'))
+
+	// Setup auto-importing and translation files for locale-selector
+	requireOnce(this, join(__dirname, 'modules/locale-selector'))
 
 	// Add the @nuxtjs/i18n module
 	requireOnce(this, '@nuxtjs/i18n')
