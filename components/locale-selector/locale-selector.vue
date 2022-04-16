@@ -9,6 +9,7 @@ cloak-i18n-locale-selector-dropdown.locale-selector(ref='dropdown')
 	template(#toggle)
 		cloak-i18n-locale(
 			:locale='locale'
+			:language-locales='currentLocaleLanguages'
 			@primary-locale-click='onPrimaryLocaleClick')
 
 	//- Make the list of locales
@@ -33,6 +34,10 @@ export default
 
 		# Get the current locale object
 		locale: -> @locales.find ({ code }) => code == @$i18n.locale
+
+		# Get the language locales of the current locale
+		currentLocaleLanguages: -> @locales.filter (locale) =>
+			locale.countryCode == @locale.countryCode
 
 		# Add extra info to localeslist
 		locales: -> @$i18n.locales.map (locale) => {
