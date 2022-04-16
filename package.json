@@ -8,10 +8,11 @@
 	"main": "nuxt.js",
 	"scripts": {
 		"dev": "nuxt dev demo",
-		"dev:external": "cd demo/external && webpack --watch --progress -c webpack.config.coffee",
+		"dev:external": "yarn build:external --watch",
 		"build": "nuxt build demo",
+		"build:external": "cd demo/external && webpack -c webpack.config.coffee",
 		"start": "nuxt start demo",
-		"generate": "nuxt generate demo --fail-on-error --target=static"
+		"generate": "yarn build:external && nuxt generate demo --fail-on-error --target=static"
 	},
 	"dependencies": {
 		"@cloak-app/utils": "^1.3.0",

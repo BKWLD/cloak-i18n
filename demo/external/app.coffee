@@ -1,15 +1,18 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
-Vue.use VueI18n
-
+import axios from 'axios'
 import TranslationsDemo from '../components/translations-demo'
 
-i18n = new VueI18n
-	locale: 'fr'
-	messages:
-		en: articles: read: 'Read'
-		fr: articles: read: 'Lire'
+# Instantiate VueI18n to expect french lcoale
+Vue.use VueI18n
+i18n = new VueI18n locale: 'fr'
 
+# Load translations for async injection. You could also wait to intiialize
+# Vue until we have translations to prevent flicker of translation keypath.
+axios.get('https://cloak-i18n.netlify.app/i18n/fr.json')
+.then ({ data }) -> i18n.setLocaleMessage 'fr', data
+
+# Initialize Vue app
 new Vue
 	el: '#app'
 	i18n: i18n
