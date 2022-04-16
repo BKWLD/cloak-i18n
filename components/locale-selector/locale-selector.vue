@@ -58,9 +58,7 @@ export default
 		# When there is a click on the primary locale of the current locale, treat
 		# this like someone trying to open the dropdown.
 		onPrimaryLocaleClick: (event) ->
-			console.log 'onPrimaryLocaleClick'
 			event.preventDefault()
-			event.stopPropagation()
 			@$refs.dropdown.toggle()
 
 </script>
