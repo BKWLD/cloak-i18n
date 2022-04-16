@@ -2,9 +2,10 @@
 
 <template lang='pug'>
 
-.locale-selector-locale
+.locale
 
 	//- Flag icon
+	img.flag(:src='flag')
 
 	//- Country name
 	.county {{ locale.country }}
@@ -24,10 +25,17 @@
 export default
 
 	props:
-		locale: Object
-		languages:
+		locale: Object # The locale object
+		languages: # List of alternative language options for the locale
 			type: Array
 			default: -> []
+
+	data: -> flag: null # Will store the path to the flag
+
+	# Load image from flag-icons NPM package
+	created: ->
+		@flag = await import("flag-icons/flags/4x3/#{@locale.countryCode}.svg")
+		@flag = @flag.default if @flag.default
 
 </script>
 
@@ -35,6 +43,11 @@ export default
 
 <style lang='stylus' scoped>
 
+.locale
+	flex-center()
 
+.flag
+	height 1em
+	margin-right 0.5em
 
 </style>

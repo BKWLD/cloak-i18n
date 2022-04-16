@@ -48,7 +48,7 @@ export default
 	border 1px solid currentColor
 	flex-center()
 	height 2em
-	padding 1em
+	padding-h 1em
 	border-radius 0.5em
 
 </style>
