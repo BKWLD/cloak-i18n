@@ -3,7 +3,7 @@
 <template lang='pug'>
 
 //- Wrap in dropdown component
-cloak-i18n-locale-selector-dropdown.locale-selector(ref='dropdown')
+cloak-i18n-locale-selector-dropdown.locale-selector
 
 	//- The Button that opens the dropdown
 	template(#toggle)
@@ -56,10 +56,9 @@ export default
 	methods:
 
 		# When there is a click on the primary locale of the current locale, treat
-		# this like someone trying to open the dropdown.
-		onPrimaryLocaleClick: (event) ->
-			event.preventDefault()
-			@$refs.dropdown.toggle()
+		# this like someone trying to open the dropdown. This allows the click
+		# to propgate to the toggle button, which does the toggling.
+		onPrimaryLocaleClick: (event) -> event.preventDefault()
 
 </script>
 
