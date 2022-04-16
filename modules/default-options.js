@@ -13,7 +13,7 @@ export default function() {
 	// we switch to kebab case because Craft sites don't support dashes in
 	// handles but ISO codes use them.
 	const defaultLocaleCode = process.env.LOCALE_CODE ||
-		kebabCase(process.env.CMS_SITE) || 'en'
+		kebabCase(process.env.CMS_SITE) || 'en-US'
 
 	// Set default options
 	setPublicDefaultOptions(this, 'i18n', {
