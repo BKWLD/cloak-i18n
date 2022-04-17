@@ -11,7 +11,7 @@
 		.flag: img(
 			v-if='flag'
 			:src='flag'
-			:alt='`${locale.country} flag`')
+			:alt='`${locale.country} ${$t("locale_selector.flag")}`')
 
 		//- Country name
 		.country-name {{ locale.country }}

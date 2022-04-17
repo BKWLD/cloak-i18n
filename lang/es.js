@@ -1,6 +1,7 @@
 export default {
 	locale_selector: {
 		label: 'Selector de configuración regional',
+		flag: 'Bandera',
 		countries: {
 			ca: 'Canadá',
 			es: 'España',

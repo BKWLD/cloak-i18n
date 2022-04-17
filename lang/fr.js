@@ -1,6 +1,7 @@
 export default {
 	locale_selector: {
 		label: 'Sélecteur de paramètres régionaux',
+		flag: 'Drapeau',
 		countries: {
 			ca: 'Canada',
 			es: 'Espagne',

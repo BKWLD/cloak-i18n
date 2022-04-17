@@ -1,6 +1,7 @@
 export default {
 	locale_selector: {
 		label: 'Locale selector',
+		flag: 'Flag',
 		countries: {
 			ca: 'Canada',
 			es: 'Spain',
