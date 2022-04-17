@@ -88,7 +88,7 @@ export default
 	top 2px
 
 .languages
-	flex-center()
+	white-space nowrap
 
 .language
 	font-size .75em
