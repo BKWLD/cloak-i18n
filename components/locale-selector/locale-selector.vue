@@ -8,9 +8,9 @@ cloak-i18n-locale-selector-dropdown.locale-selector
 	//- The Button that opens the dropdown
 	template(#toggle)
 		cloak-i18n-locale(
+			is-label
 			:locale='locale'
-			:language-locales='currentLocaleLanguages'
-			@primary-locale-click='onPrimaryLocaleClick')
+			:language-locales='currentLocaleLanguages')
 
 	//- Make the list of locales
 	ul.locales: li(
@@ -52,13 +52,6 @@ export default
 
 		# Group the locales list by country, ignoring current locale
 		otherLocalesByCountry: -> groupBy @otherLocales, 'countryCode'
-
-	methods:
-
-		# When there is a click on the primary locale of the current locale, treat
-		# this like someone trying to open the dropdown. This allows the click
-		# to propgate to the toggle button, which does the toggling.
-		onPrimaryLocaleClick: (event) -> event.preventDefault()
 
 </script>
 

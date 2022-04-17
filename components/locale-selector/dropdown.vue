@@ -4,8 +4,15 @@
 
 .dropdown
 
-	//- The button that toggles open and closed
-	.toggle(:class='{ open }' @click='toggle')
+	//- The button that toggles open and closed. Not using a button element
+	//- because it can contain anchor links which would be invalid for a button.
+	.toggle(
+		role='button'
+		tabindex='0'
+		:class='{ open }'
+		:aria-label='$t("locale_selector.label")'
+		@keyup.enter='toggle'
+		@click='toggle')
 		slot(name='toggle')
 
 		//- Toggle icon slot with default
@@ -57,6 +64,7 @@ export default
 
 .toggle-icon
 	margin-left 2em
+	margin-top 1px // Tweak vertical centering
 
 .caret
 

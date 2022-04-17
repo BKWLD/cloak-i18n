@@ -4,23 +4,24 @@
 
 .locale
 
-	//- Flag icon
-	a.flag(
-		:href='url'
-		@click='$emit("primary-locale-click", $event)')
-		img(:src='flag')
+	//- Conditional link to country
+	component.country-link(:is='countryLink' :href='url')
 
-	//- Country name
-	a.county(
-		:href='url'
-		@click='$emit("primary-locale-click", $event)')
-		| {{ locale.country }}
+		//- Flag icon
+		.flag: img(
+			v-if='flag'
+			:src='flag'
+			:alt='`${locale.country} flag`')
+
+		//- Country name
+		.country-name {{ locale.country }}
 
 	//- Optional language selector
 	.languages(v-if='languageLocales.length > 1')
 		a.language(
 			v-for='languageLocale in languageLocales'
 			:key='languageLocale.languageCode'
+			:aria-label='languageLocale.language'
 			:href='switchLocalePath(languageLocale.code)')
 			| {{ languageLocale.languageCode }}
 
@@ -33,6 +34,7 @@ export default
 
 	props:
 		locale: Object # The locale object
+		isLabel: Boolean # Disables links on country
 		languageLocales: # List of alternative language options for the locale
 			type: Array
 			default: -> []
@@ -46,8 +48,11 @@ export default
 
 	computed:
 
+		# The element to use on country links
+		countryLink: -> if @isLabel then 'span' else 'a'
+
 		# The primary url for the locale
-		url: -> @switchLocalePath @locale.code
+		url: -> unless @isLabel then @switchLocalePath @locale.code
 
 </script>
 
@@ -73,6 +78,14 @@ export default
 
 	// Removes whitespace above image
 	line-height 0
+
+.country-link
+	flex-center()
+
+// Improve vertical centering of text with respect to flag and button
+.country-name, .languages
+	position relative
+	top 2px
 
 .languages
 	flex-center()
