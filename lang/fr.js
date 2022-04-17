@@ -1,5 +1,6 @@
 export default {
 	locale_selector: {
+		label: 'Sélecteur de paramètres régionaux',
 		countries: {
 			ca: 'Canada',
 			es: 'Espagne',
