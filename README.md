@@ -19,7 +19,7 @@ Localization conventions for Cloak + Craft.
 
 Set these properties within `cloak: { i18n: { ... } }` in the nuxt.config:
 
-- `currentCode` - The `code` code (see the `locales` object) of the **current** locale.  Defaults to `process.env.LOCALE_CODE` and then `process.env.CMS_SITE` (which gets auto kebab-cased).  See the [@nuxtjs/i18n `defaultLocale` option](https://i18n.nuxtjs.org/options-reference/#defaultlocale).
+- `currentCode` - The `code` code (see the `locales` object) of the **current** locale.  Defaults to `process.env.LOCALE_CODE` and then `process.env.CMS_SITE` (which converts `_` to `-` to convert Craft handle to ISO code).  See the [@nuxtjs/i18n `defaultLocale` option](https://i18n.nuxtjs.org/options-reference/#defaultlocale).
 - `locales` - An array of objects for defining the list of supported locales. This array is similar to the [@nuxtjs/i18n `locales` option](https://i18n.nuxtjs.org/options-reference/#locales). The objects look like:
   ```js
   {

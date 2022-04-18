@@ -1,6 +1,5 @@
 import { join } from 'path'
 import defaultsDeep from 'lodash/defaultsDeep'
-import kebabCase from 'lodash/kebabCase'
 import snakeCase from 'lodash/snakeCase'
 import { setPublicDefaultOptions } from '@cloak-app/utils'
 
@@ -13,7 +12,7 @@ export default function() {
 	// we switch to kebab case because Craft sites don't support dashes in
 	// handles but ISO codes use them.
 	const defaultLocaleCode = process.env.LOCALE_CODE ||
-		kebabCase(process.env.CMS_SITE) || 'en-US'
+		process.env.CMS_SITE?.replace('_', '-') || 'en-US'
 
 	// Set default options
 	setPublicDefaultOptions(this, 'i18n', {
