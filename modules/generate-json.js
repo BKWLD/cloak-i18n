@@ -54,7 +54,7 @@ async function getCraftTranslations(moduleContainer) {
 	// values that are the translation message object
 	return Object.fromEntries(await Promise.all(locales.map(async locale => {
 		return [locale.code, await fetchCraftTranslations({
-			$craft, locale, categories
+			$craft, iso: locale.iso, categories
 		})]
 	})))
 }

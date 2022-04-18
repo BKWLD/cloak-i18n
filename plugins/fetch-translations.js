@@ -2,7 +2,7 @@
  * Fetch static translations from Craft for nuxt/i18n
  */
 import snakeCase from 'lodash/snakeCase'
-export default async function({i18n, $craft, $config}, localeCode) {
+export default async function({ i18n, $craft, $config }, localeCode) {
 
 	// Get the iso for the selected locale
 	const locale = i18n.locales.find(locale => locale.code == localeCode)
@@ -10,7 +10,7 @@ export default async function({i18n, $craft, $config}, localeCode) {
 	// Lookup translations given the CMS
 	if ($craft) return await fetchCraftTranslations({
 		$craft,
-		locale,
+		iso: locale.iso,
 		categories: $config.cloak.i18n.craft.categories,
 	})
 
@@ -19,15 +19,12 @@ export default async function({i18n, $craft, $config}, localeCode) {
 }
 
 // Query Craft for translation messages
-export async function fetchCraftTranslations({$craft, locale, categories}) {
+export async function fetchCraftTranslations({$craft, iso, categories}) {
 
 	// Get translations for the locale from Craft
 	const response = await $craft.execute({
 		query: craftStaticMessagesQuery,
-		variables: {
-			categories,
-			iso: locale.iso,
-		}
+		variables: { categories, iso }
 	})
 
 	// Make nested object expected by nuxt/i18n where messages are contained
