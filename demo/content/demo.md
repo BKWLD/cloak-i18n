@@ -9,8 +9,7 @@ This locale switcher component comes with the package.
 
 
 ```vue
-<cloak-i18n-locale-selector>
-</cloak-i18n-locale-selector>
+<cloak-i18n-locale-selector />
 ```
 
 ## Using Translations
