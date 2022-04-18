@@ -7,7 +7,6 @@ This locale switcher component comes with the package.
 <cloak-i18n-locale-selector>
 </cloak-i18n-locale-selector>
 
-
 ```vue
 <cloak-i18n-locale-selector />
 ```
