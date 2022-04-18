@@ -12,38 +12,49 @@ export default function() {
 	const log = consola.withTag('@cloak-app/i18n')
 
 	// React to geneating:done hook
+	const moduleContainer = this
 	this.nuxt.hook('generate:done', async function ({ options, distPath }) {
 
 		// Log starting
-		const $config = options.publicRuntimeConfig,
-			locales = $config.cloak.i18n.locales
-		log.info(`Creating ${locales.length} static string JSON files`)
+		log.info(`Creating static string JSON files`)
 
-		// Make a Craft client since we don't have access to the context here and
-		// can't access the instance built by the @cloak-app/craft plugin. I'm
-		// doing a dynamic import of @cloak-app/craft to lookahead to future
-		// support of multiple adapters that I don't want to be explicit
-		// dependencies of the package. This also supports using a mock for
-		// testing.
-		const { makeCraftClient } = await import('@cloak-app/craft/factories'),
-			$craft = options.craftMock || makeCraftClient($config.cloak.craft)
+		// Fetch translations through CMS adapter
+		let translations
+		if (options.cloak.craft) {
+			translations = await getCraftTranslations(moduleContainer)
+		} else {
+			return log.warn('No CMS adapter found for generating JSON')
+		}
 
-		// Loop through all locales...
-		await Promise.all(locales.map(async locale => {
-
-			// Get the static string JSON from the CMS
-			const translations = await fetchCraftTranslations({
-				$craft, locale,
-				categories: $config.cloak.i18n.craft.categories,
-			})
-
-			// Write the data file
-			const fileName = join(distPath, 'i18n', `${locale.code}.json`)
+		// // Write JSON files
+		Object.entries(translations).forEach(([localeCode, messages]) => {
+			const fileName = join(distPath, 'i18n', `${localeCode}.json`)
 			mkdirSync(dirname(fileName), { recursive: true })
-			writeFileSync(fileName, JSON.stringify(translations))
-		}))
+			writeFileSync(fileName, JSON.stringify(messages))
+		})
 
 		// All done
-		log.success('Created all static string JSON files')
+		log.success('Created static string JSON files')
 	})
+}
+
+// Fetch translations from Craft's translations-admin plugin
+async function getCraftTranslations(moduleContainer) {
+
+	// Dynamically import Craft client so no explicit import required.
+	const { makeModuleCraftClient } = await import('@cloak-app/craft/factories'),
+		$craft = makeModuleCraftClient(moduleContainer),
+
+		// Access deep vars
+		i18nOptions = moduleContainer.options.cloak.i18n,
+		locales = i18nOptions.locales,
+		categories = i18nOptions.craft.categories
+
+	// Loop through all locales and return an object with locale code keys and
+	// values that are the translation message object
+	return Object.fromEntries(await Promise.all(locales.map(async locale => {
+		return [locale.code, await fetchCraftTranslations({
+			$craft, locale, categories
+		})]
+	})))
 }
