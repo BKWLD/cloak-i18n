@@ -49,7 +49,12 @@ This package uses [@nuxtjs/i18n](https://i18n.nuxtjs.org) which, itself, consume
 
 `<cloak-i18n-locale-selector />`
 
-Renders a select-style menu for choosing a locale.
+Renders a select-style menu for choosing a locale.  This component can be configured with the following Stylus or CSS customer properties:
+
+- `cloak-i18n-locale-selector-radius` - The radius of the select button and the menu background.
+- `cloak-i18n-locale-selector-padding-h` - The horizontal padding within the toggle button and in the select menu.
+- `cloak-i18n-locale-selector-toggle-height` - The height of the select button.
+- `cloak-i18n-locale-selector-options-padding-v` - The vertical padding within the select menu and the spacing between locale options within the menu.
 
 ## Contributing
 

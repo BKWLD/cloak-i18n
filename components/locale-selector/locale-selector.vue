@@ -68,7 +68,7 @@ export default
 // The container of the locale menu options
 .locales
 	padding-v cloak-i18n-locale-selector-options-padding-v
-	padding-h cloak-i18n-locale-selector-toggle-padding-h
+	padding-h cloak-i18n-locale-selector-padding-h
 	> :not(:first-child)
 		margin-top cloak-i18n-locale-selector-options-padding-v
 

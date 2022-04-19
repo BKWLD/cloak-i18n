@@ -53,7 +53,7 @@ export default
 	button()
 	border 1px solid currentColor
 	height cloak-i18n-locale-selector-toggle-height
-	padding-h cloak-i18n-locale-selector-toggle-padding-h
+	padding-h cloak-i18n-locale-selector-padding-h
 	border-radius cloak-i18n-locale-selector-radius
 
 	// Expand to fill width
