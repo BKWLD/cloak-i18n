@@ -1,6 +1,5 @@
 import { join } from 'path'
 import defaultsDeep from 'lodash/defaultsDeep'
-import snakeCase from 'lodash/snakeCase'
 import { setPublicDefaultOptions } from '@cloak-app/utils'
 
 /**
@@ -58,7 +57,7 @@ export default function() {
 			file: join(__dirname, '../plugins/fetch-translations.js'),
 
 			// Make vars used by Craft (where the site handle is snake-cased)
-			site: locale.site || snakeCase(locale.code),
+			site: locale.site || locale.code.replace('_', '-'),
 
 			// Make vars used by locale selector
 			countryCode: locale.countryCode || makeCountryCode(locale.code),
