@@ -1,5 +1,6 @@
 import { addPluginAfter } from '@cloak-app/utils'
 import { makeCraftMock } from './plugins/mock-craft'
+import { LOCALES } from './services/i18n'
 
 // Nuxt config
 export default {
@@ -27,24 +28,7 @@ export default {
 		i18n: {
 
 			// Testing with English and French
-			locales: [
-				{
-					code: 'en-US',
-					domain: 'https://cloak-i18n.netlify.app'
-				},
-				{
-					code: 'en-CA',
-					domain: 'https://cloak-i18n-en-ca.netlify.app'
-				},
-				{
-					code: 'fr-CA',
-					domain: 'https://cloak-i18n-fr-ca.netlify.app'
-				},
-				{
-					code: 'es',
-					domain: 'https://cloak-i18n-es.netlify.app'
-				},
-			],
+			locales: LOCALES,
 
 			// Create JSON fields for use in the external demo
 			generateJson: true,
