@@ -23,6 +23,7 @@ export function makeCraftMock() {
 
 // Add mock to axios instances
 export function addMocks(client) {
+	console.log('adding mocks')
 
 	// Make mock instance
 	const mock = new MockAdapter(client)
@@ -30,7 +31,7 @@ export function addMocks(client) {
 	// Listen to all requests...
 	mock.onAny().reply(config => {
 		const payload = JSON.parse(config.data)
-		console.log(payload)
+		console.log('payload', payload)
 
 		// Return a json stub based on request vars
 		if (payload.variables.iso.match(/^en/)) return [200, en]
