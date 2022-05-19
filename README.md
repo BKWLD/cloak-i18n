@@ -15,6 +15,14 @@ Localization conventions for Cloak + Craft.
 4. Add `this.$nuxtI18nHead({ addSeoAttributes:true })` to your head, probably in your default layout, as described in [the @nuxtjs/i18n docs](https://i18n.nuxtjs.org/seo/#setup)
     - Adding to the nuxt.config conflicts with [@nuxtjs/gtm](https://github.com/nuxt-community/gtm-module/issues/136)
 
+If using the `generateJson` option, you'll need to support CORS requests for the JSON files.  If using Netlify, add this to your `static/_redirects` file:
+
+```
+# Allow access to i18n json files
+/i18n/*
+	Access-Control-Allow-Origin: *
+```
+
 ### Module Options
 
 Set these properties within `cloak: { i18n: { ... } }` in the nuxt.config:
