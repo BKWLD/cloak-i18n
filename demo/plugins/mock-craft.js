@@ -30,6 +30,7 @@ export function addMocks(client) {
 	// Listen to all requests...
 	mock.onAny().reply(config => {
 		const payload = JSON.parse(config.data)
+		console.log(payload)
 
 		// Return a json stub based on request vars
 		if (payload.variables.iso.match(/^en/)) return [200, en]
