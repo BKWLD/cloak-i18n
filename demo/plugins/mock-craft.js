@@ -39,6 +39,6 @@ export function addMocks(client) {
 		else if (payload.variables?.iso.match(/^fr/)) return [200, fr]
 
 		// A request didn't match expectations
-		throw 'Unexepcted request'
+		throw 'Unexepcted request: ' + config.data
 	})
 }
