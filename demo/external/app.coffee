@@ -2,15 +2,28 @@ import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import axios from 'axios'
 import TranslationsDemo from '../components/translations-demo'
+import { LOCALES } from '../services/i18n'
 
-# Instantiate VueI18n to expect french lcoale
+# Instantiate VueI18n to expect french locale
+currentLocaleCode = 'fr-CA'
 Vue.use VueI18n
-i18n = new VueI18n locale: 'fr-CA'
+i18n = new VueI18n locale: currentLocaleCode
+
+# Add the full locales array where @nuxt/i18n would put it
+i18n.locales = LOCALES.map (locale) ->
+	[languageCode, countryCode] = locale.code.split('-')
+	countryCode = (countryCode || languageCode).toLowerCase()
+	{ ...locale, languageCode, countryCode }
 
 # Load translations for async injection. You could also wait to intiialize
 # Vue until we have translations to prevent flicker of translation keypath.
 axios.get('https://cloak-i18n.netlify.app/i18n/fr-CA.json')
-.then ({ data }) -> i18n.setLocaleMessage 'fr-CA', data
+.then ({ data }) -> i18n.mergeLocaleMessage currentLocaleCode, data
+
+# Load translations from this package.  You would replace the relative path
+# with `"@cloak-app/i18n/lang/#{currentLocaleCode}"`
+import("../../lang/#{currentLocaleCode}")
+.then ({ data }) -> i18n.mergeLocaleMessage currentLocaleCode, data
 
 # Initialize Vue app
 new Vue
