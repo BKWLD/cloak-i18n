@@ -20,8 +20,9 @@ i18n.locales = LOCALES.map (locale) ->
 axios.get('https://cloak-i18n.netlify.app/i18n/fr-CA.json')
 .then ({ data }) -> i18n.mergeLocaleMessage currentLocaleCode, data
 
-# Load translatins from this package
-import("@cloak-app/i18n/lang/#{currentLocaleCode}")
+# Load translations from this package.  You would replace the relative path
+# with `"@cloak-app/i18n/lang/#{currentLocaleCode}"`
+import("../../lang/#{currentLocaleCode}")
 .then ({ data }) -> i18n.mergeLocaleMessage currentLocaleCode, data
 
 # Initialize Vue app
