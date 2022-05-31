@@ -32,7 +32,10 @@ Set these properties within `cloak: { i18n: { ... } }` in the nuxt.config:
   ```js
   {
     code: 'en', // Should be an ISO code
-    domain: 'https://cloak-i18n.netlify.app'
+    domain: 'https://cloak-i18n.netlify.app', // Should be full origin
+
+    // @cloak-app/i18n additions
+    currency: 'USD', // Optional, used with $n()
   }
   ```
 - `generateJson` - Boolean to enable static generation of JSON files for each locale's static strings.  You would enable this if you wanted to use the static strings outside of Nuxt, like as part of components that are used in a Shopify theme.  The JSON is written to `/dist/i18n/{code}.json` where `{code}` comes from the `locales` array.

@@ -1,6 +1,7 @@
 import { join } from 'path'
 import defaultsDeep from 'lodash/defaultsDeep'
 import { setPublicDefaultOptions } from '@cloak-app/utils'
+import { makeNumberFormats } from '../helpers/currency'
 
 /**
  * Set default options for this package and nuxt/i18n
@@ -46,6 +47,7 @@ export default function() {
 		vueI18n: {
 			fallbackLocale: makeFallbackCode(locales), // Fallback to English
 			silentFallbackWarn: true, // Silence warnings about fallback
+			numberFormats: makeNumberFormats(locales),
 		},
 
 		// Configure where to load static strings from.

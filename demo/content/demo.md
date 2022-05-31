@@ -13,13 +13,13 @@ This locale switcher component comes with the package.
 
 ## Using Translations
 
-This component uses `$t()` to resolve the button text using static string translation via [`@nuxtjs/i18n`](https://i18n.nuxtjs.org).  You can edit the `currentCode` in [`nuxt.config.js`](https://github.com/BKWLD/cloak-i18n/blob/master/demo/nuxt.config.js) to switch languages.
+This component uses `$t()` to resolve the button text using static string translation via [`@nuxtjs/i18n`](https://i18n.nuxtjs.org).  You can edit the `currentCode` in [`nuxt.config.js`](https://github.com/BKWLD/cloak-i18n/blob/master/demo/nuxt.config.js) to switch languages.  It also uses `$n()` to format a number as a currency value.
 
 <translations-demo></translations-demo>
 
 ```vue
 <button class="translations-demo">
-  {{ $t('articles.read') }}
+  {{ $t('articles.read') }} ({{ $n(21.99, 'currency') }})
 </button>
 ```
 
