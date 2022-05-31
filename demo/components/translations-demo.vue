@@ -2,7 +2,9 @@
 
 <template lang='pug'>
 
-button.translations-demo {{ $t('articles.read') }}
+button.translations-demo
+	| {{ $t('articles.read') }}
+	|  ({{ $n(21.99, 'currency') }})
 
 </template>
 
