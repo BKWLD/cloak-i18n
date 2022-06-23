@@ -39,13 +39,6 @@ export default
 			type: Array
 			default: -> []
 
-	data: -> flag: null # Will store the path to the flag
-
-	# Load image from flag-icons NPM package
-	created: ->
-		@flag = await import("flag-icons/flags/4x3/#{@locale.countryCode}.svg")
-		@flag = @flag.default if @flag.default
-
 	computed:
 
 		# Make the URL to the flag icon from CDN
