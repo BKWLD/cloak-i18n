@@ -48,6 +48,11 @@ export default
 
 	computed:
 
+		# Make the URL to the flag icon from CDN
+		flag: ->
+			endpoint = 'https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.2'
+			"#{endpoint}/flags/4x3/#{@locale.countryCode}.svg"
+
 		# The element to use on country links
 		countryLink: -> if @isLabel then 'span' else 'a'
 
