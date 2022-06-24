@@ -1,6 +1,6 @@
 {
 	"name": "@cloak-app/i18n",
-	"version": "1.3.0",
+	"version": "1.4.0",
 	"description": "Localization conventions for Cloak + Craft.",
 	"repository": "git@github.com:BKWLD/cloak-i18n.git",
 	"author": "Bukwild <info@bukwild.com>",
