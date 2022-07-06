@@ -4,6 +4,7 @@ export default {
 		flag: 'lippu',
 		countries: {
 			au: 'Australia',
+			be: 'Belgia',
 			ca: 'Canada',
 			ch: 'Sveitsi',
 			de: 'Saksa',

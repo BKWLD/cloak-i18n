@@ -4,6 +4,7 @@ export default {
 		flag: 'Flagga',
 		countries: {
 			au: 'Australien',
+			be: 'Belgien',
 			ca: 'Kanada',
 			ch: 'Schweiz',
 			de: 'Tyskland',
