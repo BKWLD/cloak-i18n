@@ -16,7 +16,7 @@ export default {
 			it: 'Italia',
 			nl: 'Alankomaat',
 			no: 'Norja',
-			sv: 'Ruotsi',
+			se: 'Ruotsi',
 			us: 'Yhdysvallat',
 		},
 		languages: {
@@ -29,7 +29,7 @@ export default {
 			it: 'Italialainen',
 			nl: 'Hollanti',
 			no: 'Norjalainen',
-			sv: 'Ruotsalainen',
+			se: 'Ruotsalainen',
 		}
 	}
 }

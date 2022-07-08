@@ -16,7 +16,7 @@ export default {
 			it: 'Italien',
 			nl: 'Holland',
 			no: 'Norge',
-			sv: 'Sverige',
+			se: 'Sverige',
 			us: 'USA',
 		},
 		languages: {
@@ -29,7 +29,7 @@ export default {
 			it: 'Italiensk',
 			nl: 'Hollandsk',
 			no: 'Norsk',
-			sv: 'Svensk',
+			se: 'Svensk',
 		}
 	}
 }
