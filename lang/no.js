@@ -29,7 +29,7 @@ export default {
 			it: 'italiensk',
 			nl: 'nederlandsk',
 			no: 'norsk',
-			se: 'svensk',
+			sv: 'svensk',
 		}
 	}
 }

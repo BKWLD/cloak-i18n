@@ -29,7 +29,7 @@ export default {
 			it: 'Italiaans',
 			nl: 'Nederlands',
 			no: 'Noors',
-			se: 'Zweeds',
+			sv: 'Zweeds',
 		}
 	}
 }
