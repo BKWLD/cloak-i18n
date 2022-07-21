@@ -28,7 +28,7 @@ export default {
 			fr: 'Ranskalainen',
 			it: 'Italialainen',
 			nl: 'Hollanti',
-			no: 'Norjalainen',
+			nn: 'Norjalainen',
 			sv: 'Ruotsalainen',
 		}
 	}

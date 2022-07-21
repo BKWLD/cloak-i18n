@@ -28,7 +28,7 @@ export default {
 			fr: 'Frans',
 			it: 'Italiaans',
 			nl: 'Nederlands',
-			no: 'Noors',
+			nn: 'Noors',
 			sv: 'Zweeds',
 		}
 	}

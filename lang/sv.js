@@ -28,7 +28,7 @@ export default {
 			fr: 'franska',
 			it: 'italienska',
 			nl: 'holländska',
-			no: 'norsk',
+			nn: 'norsk',
 			sv: 'svenska',
 		}
 	}

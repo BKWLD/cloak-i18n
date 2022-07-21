@@ -28,7 +28,7 @@ export default {
 			fr: 'Français',
 			it: 'Italien',
 			nl: 'Néerlandais',
-			no: 'Norvégien',
+			nn: 'Norvégien',
 			sv: 'Suédois',
 		}
 	}
