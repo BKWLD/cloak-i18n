@@ -4,6 +4,7 @@ export default {
 		flag: 'Drapeau',
 		countries: {
 			au: 'Australie',
+			be: 'Belgique',
 			ca: 'Canada',
 			ch: 'Suisse',
 			de: 'Allemagne',
@@ -15,7 +16,7 @@ export default {
 			it: 'Italie',
 			nl: 'Pays-Bas',
 			no: 'Norvège',
-			sv: 'Suède',
+			se: 'Suède',
 			us: 'États-Unis',
 		},
 		languages: {
@@ -27,7 +28,7 @@ export default {
 			fr: 'Français',
 			it: 'Italien',
 			nl: 'Néerlandais',
-			no: 'Norvégien',
+			nn: 'Norvégien',
 			sv: 'Suédois',
 		}
 	}

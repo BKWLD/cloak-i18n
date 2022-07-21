@@ -4,6 +4,7 @@ export default {
 		flag: 'Flagga',
 		countries: {
 			au: 'Australien',
+			be: 'Belgien',
 			ca: 'Kanada',
 			ch: 'Schweiz',
 			de: 'Tyskland',
@@ -15,7 +16,7 @@ export default {
 			it: 'Italien',
 			nl: 'Nederländerna',
 			no: 'Norge',
-			sv: 'Sverige',
+			se: 'Sverige',
 			us: 'USA',
 		},
 		languages: {
@@ -27,7 +28,7 @@ export default {
 			fr: 'franska',
 			it: 'italienska',
 			nl: 'holländska',
-			no: 'norsk',
+			nn: 'norsk',
 			sv: 'svenska',
 		}
 	}

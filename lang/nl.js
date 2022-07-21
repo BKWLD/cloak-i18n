@@ -4,6 +4,7 @@ export default {
 		flag: 'Vlag',
 		countries: {
 			au: 'Australië',
+			be: 'België',
 			ca: 'Canada',
 			ch: 'Zwitserland',
 			de: 'Duitsland',
@@ -15,7 +16,7 @@ export default {
 			it: 'Italië',
 			nl: 'Nederland',
 			no: 'Noorwegen',
-			sv: 'Zweden',
+			se: 'Zweden',
 			us: 'Verenigde Staten',
 		},
 		languages: {
@@ -27,7 +28,7 @@ export default {
 			fr: 'Frans',
 			it: 'Italiaans',
 			nl: 'Nederlands',
-			no: 'Noors',
+			nn: 'Noors',
 			sv: 'Zweeds',
 		}
 	}

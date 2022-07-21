@@ -4,6 +4,7 @@ export default {
 		flag: 'lippu',
 		countries: {
 			au: 'Australia',
+			be: 'Belgia',
 			ca: 'Canada',
 			ch: 'Sveitsi',
 			de: 'Saksa',
@@ -15,7 +16,7 @@ export default {
 			it: 'Italia',
 			nl: 'Alankomaat',
 			no: 'Norja',
-			sv: 'Ruotsi',
+			se: 'Ruotsi',
 			us: 'Yhdysvallat',
 		},
 		languages: {
@@ -27,7 +28,7 @@ export default {
 			fr: 'Ranskalainen',
 			it: 'Italialainen',
 			nl: 'Hollanti',
-			no: 'Norjalainen',
+			nn: 'Norjalainen',
 			sv: 'Ruotsalainen',
 		}
 	}
