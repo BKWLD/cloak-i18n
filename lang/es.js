@@ -4,6 +4,7 @@ export default {
 		flag: 'Bandera',
 		countries: {
 			au: 'Australia',
+			be: 'Bélgica',
 			ca: 'Canadá',
 			ch: 'Suiza',
 			de: 'Alemania',
@@ -16,7 +17,7 @@ export default {
 			kr: 'Corea',
 			nl: 'Países Bajos',
 			no: 'Noruega',
-			sv: 'Suecia',
+			se: 'Suecia',
 			us: 'Estados Unidos',
 		},
 		languages: {
@@ -29,7 +30,7 @@ export default {
 			it: 'Italiano',
 			ko: 'Coreano',
 			nl: 'Holandés',
-			no: 'Noruego',
+			nn: 'Noruego',
 			sv: 'Sueco',
 		}
 	}
