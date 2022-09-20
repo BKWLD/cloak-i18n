@@ -20,7 +20,8 @@ cloak-i18n-locale-selector-dropdown.locale-selector
 		//- A locale option
 		cloak-i18n-locale(
 			:locale='locales[0]'
-			:language-locales='locales')
+			:language-locales='locales'
+			:redirect-home='redirectHome')
 
 </template>
 
@@ -29,6 +30,9 @@ cloak-i18n-locale-selector-dropdown.locale-selector
 <script lang='coffee'>
 import groupBy from 'lodash/groupBy'
 export default
+
+	props:
+		redirectHome: Boolean # Make links to homepages rather than current page
 
 	computed:
 

@@ -22,7 +22,7 @@
 			v-for='languageLocale in languageLocales'
 			:key='languageLocale.languageCode'
 			:aria-label='languageLocale.language'
-			:href='switchLocalePath(languageLocale.code)')
+			:href='makeUrl(languageLocale.code)')
 			| {{ languageLocale.languageCode }}
 
 </template>
@@ -35,6 +35,7 @@ export default
 	props:
 		locale: Object # The locale object
 		isLabel: Boolean # Disables links on country
+		redirectHome: Boolean # Make links to homepages rather than current page
 		languageLocales: # List of alternative language options for the locale
 			type: Array
 			default: -> []
@@ -49,8 +50,17 @@ export default
 		# The element to use on country links
 		countryLink: -> if @isLabel then 'span' else 'a'
 
-		# The primary url for the locale
-		url: -> unless @isLabel then @switchLocalePath @locale.code
+		# Make the country level link
+		url: -> @makeUrl @locale.code unless @isLabel
+
+	methods:
+
+		# Make the URL to a locale code. These helper functions come
+		# from @nuxtjs/i18n
+		makeUrl: (code) ->
+			if @redirectHome
+			then @localePath '/', @locale.code
+			else @switchLocalePath @locale.code
 
 </script>
 
