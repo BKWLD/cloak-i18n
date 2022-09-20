@@ -54,17 +54,19 @@ export default function() {
 		langDir: '~/',
 
 		// Massage @cloak-app/i18n locales into the format expected by @nuxtjs/i18n
-		locales: locales.map(locale => defaultsDeep(locale, {
-			iso: locale.iso || locale.code,
-			file: join(__dirname, '../plugins/fetch-translations.js'),
+		locales: locales.map(locale => {
+			const iso = locale.iso || locale.code
+			return defaultsDeep(locale, {
+				iso,
+				file: join(__dirname, '../plugins/fetch-translations.js'),
 
-			// Make vars used by Craft (where the site handle is snake-cased)
-			site: locale.site || locale.code.replace('_', '-'),
+				// Make vars used by Craft (where the site handle is snake-cased)
+				site: locale.site || locale.code.replace('_', '-'),
 
-			// Make vars used by locale selector
-			countryCode: locale.countryCode || makeCountryCode(locale.code),
-			languageCode: locale.languageCode ||  makeLanguageCode(locale.code),
-		}))
+				// Make vars used by locale selector
+				countryCode: locale.countryCode || makeCountryCode(iso),
+				languageCode: locale.languageCode ||  makeLanguageCode(iso),
+		})})
 	}})
 }
 
@@ -75,7 +77,7 @@ function makeFallbackCode(locales) {
 	if (match) return match.code
 }
 
-// If there is a slash in the code, assume the latter part is the country
+// If there is a dash in the code, assume the latter part is the country
 // code and return it.  Otherwise, use the language code as country code
 function makeCountryCode(code) {
 	const match = code.match(/\-(\w+)$/)
@@ -83,8 +85,8 @@ function makeCountryCode(code) {
 	else return code
 }
 
-// If there is a slash in the code, assume the former part is the lanuage
-// code and return it.  Otherwise, if no slash, assume this is a code for a
+// If there is a dash in the code, assume the former part is the lanuage
+// code and return it.  Otherwise, if no dash, assume this is a code for a
 // lanaguage only (ie "fr") with no country part
 function makeLanguageCode(code) {
 	const match = code.match(/^(\w+)\-/)
