@@ -14,10 +14,10 @@
 			:alt='`${locale.country} ${$t("locale_selector.flag")}`')
 
 		//- Country name
-		.country-name {{ locale.country }}
+		.name {{ name }}
 
 	//- Optional language selector
-	.languages(v-if='languageLocales.length > 1')
+	.languages(v-if='!listLanguages && languageLocales.length > 1')
 		a.language(
 			v-for='languageLocale in languageLocales'
 			:key='languageLocale.languageCode'
@@ -36,11 +36,15 @@ export default
 		locale: Object # The locale object
 		isLabel: Boolean # Disables links on country
 		redirectHome: Boolean # Make links to homepages rather than current page
+		listLanguages: Boolean # Display language instead of country names
 		languageLocales: # List of alternative language options for the locale
 			type: Array
 			default: -> []
 
 	computed:
+
+		# Make the name
+		name: -> if @listLanguages then @locale.language else @locale.country
 
 		# Make the URL to the flag icon from CDN
 		flag: ->
@@ -91,7 +95,7 @@ export default
 	flex-center()
 
 // Improve vertical centering of text with respect to flag and button
-.country-name, .languages
+.name, .languages
 	position relative
 	top 2px
 
