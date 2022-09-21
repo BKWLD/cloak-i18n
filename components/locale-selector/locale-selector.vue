@@ -37,7 +37,7 @@ export default
 	computed:
 
 		# Get the current locale object
-		locale: -> @$i18n.localeProperties
+		locale: -> @locales.find ({ code }) => code == @$i18n.locale
 
 		# Get the language locales of the current locale
 		currentLocaleLanguages: -> @locales.filter (locale) =>
