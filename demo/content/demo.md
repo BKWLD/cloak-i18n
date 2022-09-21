@@ -14,13 +14,13 @@ This locale switcher component comes with the package.
 You can optionally list only langugages and choose to redirect to the home of the given locale site rather than the some route on the new locale.
 
 <cloak-i18n-locale-selector
-  list-languages
+  select-by-language
   redirect-home>
 </cloak-i18n-locale-selector>
 
 ```vue
 <cloak-i18n-locale-selector
-  list-languages
+  select-by-language
   redirect-home>
 </cloak-i18n-locale-selector>
 ```

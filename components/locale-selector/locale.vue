@@ -17,7 +17,7 @@
 		.name {{ name }}
 
 	//- Optional language selector
-	.languages(v-if='!listLanguages && languageLocales.length > 1')
+	.languages(v-if='!selectByLanguage && languageLocales.length > 1')
 		a.language(
 			v-for='languageLocale in languageLocales'
 			:key='languageLocale.languageCode'
@@ -36,7 +36,7 @@ export default
 		locale: Object # The locale object
 		isLabel: Boolean # Disables links on country
 		redirectHome: Boolean # Make links to homepages rather than current page
-		listLanguages: Boolean # Display language instead of country names
+		selectByLanguage: Boolean # Display language instead of country names
 		languageLocales: # List of alternative language options for the locale
 			type: Array
 			default: -> []
@@ -44,7 +44,7 @@ export default
 	computed:
 
 		# Make the name
-		name: -> if @listLanguages then @locale.language else @locale.country
+		name: -> if @selectByLanguage then @locale.language else @locale.country
 
 		# Make the URL to the flag icon from CDN
 		flag: ->

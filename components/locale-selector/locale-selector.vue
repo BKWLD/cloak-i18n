@@ -11,7 +11,7 @@ cloak-i18n-locale-selector-dropdown.locale-selector
 			is-label
 			:locale='locale'
 			:language-locales='currentLocaleLanguages'
-			:list-languages='listLanguages')
+			:select-by-language='selectByLanguage')
 
 	//- Make the list of locales
 	ul.locales: li(
@@ -23,7 +23,7 @@ cloak-i18n-locale-selector-dropdown.locale-selector
 			:locale='locales[0]'
 			:language-locales='locales'
 			:redirect-home='redirectHome'
-			:list-languages='listLanguages')
+			:select-by-language='selectByLanguage')
 
 </template>
 
@@ -35,7 +35,7 @@ export default
 
 	props:
 		redirectHome: Boolean # Make links to homepages rather than current page
-		listLanguages: Boolean # List language instead of country names
+		selectByLanguage: Boolean # List language instead of country names
 
 	computed:
 
@@ -55,7 +55,7 @@ export default
 
 		# Make list of locales for the dropdown
 		dropdownLocales: ->
-			if @listLanguages
+			if @selectByLanguage
 			then groupBy @otherLocales, 'languageCode'
 			else groupBy @otherLocales, 'countryCode'
 
