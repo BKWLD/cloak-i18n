@@ -7,6 +7,21 @@ export default async function({ i18n, $craft, $config }, localeCode) {
 	// Get the iso for the selected locale
 	const locale = i18n.locales.find(locale => locale.code == localeCode)
 
+	// If JSON files are generated and this is being invoked on the client, use
+	// those JSON files.
+	if ($config.cloak.i18n.generateJson && process.client) {
+		try {
+			const generateDir = $config._app.basePath || "/";
+			const response = await fetch(`${generateDir}i18n/${localeCode}.json`);
+			if (!response.ok) throw "Static JSON not found";
+			return await response.json();
+
+			// If not found, fallback to the CMS
+		} catch (e) {
+			console.error(e);
+		}
+	}
+
 	// Lookup translations given the CMS
 	if ($craft) return await fetchCraftTranslations({
 		$craft,
