@@ -4805,11 +4805,6 @@ find-up@^4.0.0, find-up@^4.1.0:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
 
-flag-icons@^6.2.0:
-  version "6.4.2"
-  resolved "https://registry.yarnpkg.com/flag-icons/-/flag-icons-6.4.2.tgz#c608770f55cecf0904ffd17230ca1ec44fa65d53"
-  integrity sha512-1zlIYDVcn5jQpF5aYWEAeO4WXuLHj4i6lQIZNjn8Kl6rcZperkUj79uHC9OUi2s+IEl9AYskW8JCx83/6KcmLw==
-
 flat@^5.0.0:
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/flat/-/flat-5.0.2.tgz#8ca6fe332069ffa9d324c327198c598259ceb241"
@@ -10852,7 +10847,7 @@ webpack-dev-middleware@^4.2.0:
     range-parser "^1.2.1"
     schema-utils "^3.0.0"
 
-"webpack-graphql-loader@github:gpoitch/graphql-loader#gp/refresh":
+webpack-graphql-loader@gpoitch/graphql-loader#gp/refresh:
   version "1.0.2"
   resolved "https://codeload.github.com/gpoitch/graphql-loader/tar.gz/42f0f990a6132ccd5e284d0e6cfeade12728dba2"
   dependencies:
