@@ -9,7 +9,7 @@ export default async function({ i18n, $craft, $config }, localeCode) {
 
 	// If JSON files are generated and this is being invoked on the client, use
 	// those JSON files.
-	if ($config.cloak.i18n.generateJson && process.client) {
+	if ($config.cloak.i18n.generateJson && process.client && process.static) {
 		try {
 			const generateDir = $config._app.basePath || "/";
 			const response = await fetch(`${generateDir}i18n/${localeCode}.json`);
