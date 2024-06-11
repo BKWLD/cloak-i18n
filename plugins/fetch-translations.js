@@ -18,7 +18,7 @@ export default async function({ i18n, $craft, $config }, localeCode) {
 
 			// If not found, fallback to the CMS
 		} catch (e) {
-			console.error(e);
+			console.error("Couldn't load translations", e);
 		}
 	}
 
